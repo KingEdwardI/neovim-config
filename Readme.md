@@ -96,9 +96,10 @@ galaxyline was easy to implement, but ended up breaking visual-block mode. Updat
 `lualine` which has turned out to be easier and less buggy. Might end up trying out other
 packages like `cokeline`, but I'm happy with this for now.
 
-## Contributing
+## Notes
 
-The only contributions I'll accept at this time are bug fixes. I won't be implementing additional functionality
-unless it suits me. I'm not trying to maintain an IDE for anyone else, and if I start implementing things I don't
-need I'll get very lost and probably end up scrapping the whole thing (again... for like the 5th time)
-
+- Plugins and their configs are in individual folders with either/both of `config.lua` and `keymap.lua`.
+The purpose of this is for lazy loading and error handling. In order for the config of each plugin to not
+throw an error if the plugin isn't installed, it must be `require`d as a callback of the `config` key passed
+to the `use` function. The keymap cannot be part of the config for plugins that load on command execution 
+or else the keymapping will not be available.

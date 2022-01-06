@@ -179,13 +179,21 @@ return packer.startup(function(use)
   -- ---- vim-visual-multi - multiple cursors
   -- ---- https://github.com/mg979/vim-visual-multi
   --]]
-  use('mg979/vim-visual-multi')
+  use({
+    'mg979/vim-visual-multi',
+    opt = true,
+    event = 'InsertEnter',
+  })
 
   --[[
   -- vim-matchup - extends the `%` command
   -- https://github.com/andymass/vim-matchup
   --]]
-  use('andymass/vim-matchup')
+  use({
+    'andymass/vim-matchup',
+    opt = true,
+    event = 'InsertEnter',
+  })
 
   --[[
   -- FZF - fuzzy finder
