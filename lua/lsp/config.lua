@@ -1,5 +1,4 @@
 local utils = require('utils')
-local nvim_lsp = require('lspconfig')
 
 local buf_map = utils.buf_map
 local config = {}
@@ -18,7 +17,6 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap = true, silent = true }
 
   vim.cmd('command! LspDef lua vim.lsp.buf.definition()')
   vim.cmd('command! LspFormatting lua vim.lsp.buf.formatting()')
