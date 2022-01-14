@@ -1,3 +1,5 @@
+-- keymaps must be loaded separately from the configs
+-- so that lazy loaded plugins can be activated on command
 local utils = require('utils')
 local set_keymap = utils.set_keymap
 
@@ -40,3 +42,4 @@ require('nvim-tree-cfg.keymap')
 require('trouble-cfg.keymap')
 require('vim-commentary.keymap')
 require('vim-which-key.keymap')
+require('nvim-spectre.keymap')

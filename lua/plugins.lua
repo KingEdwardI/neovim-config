@@ -351,6 +351,17 @@ return packer.startup(function(use)
   --]]
   use('lewis6991/impatient.nvim')
 
+  --[[
+  -- nvim-spectre - search/replace tool
+  -- https://github.com/nvim-pack/nvim-spectre
+  --]]
+  use({
+    'windwp/nvim-spectre',
+    config = function()
+      require('nvim-spectre.config')
+    end,
+  })
+
   -- EndSection - General
 
   -- Section - Bash
