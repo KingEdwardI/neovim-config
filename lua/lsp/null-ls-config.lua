@@ -20,6 +20,8 @@ null_ls.setup({
       vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
     end
 
+    vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+
     config.on_attach(client, bufnr)
   end,
 })
