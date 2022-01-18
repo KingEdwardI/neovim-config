@@ -21,30 +21,3 @@ it's own).
 [`packer.nvim`](https://github.com/wbthomason/packer.nvim) Is the current lua-standard package manager that I'll
 be using until something quantifiably better comes along.
 
-### Packages / Features
-
-See `lua/plugins.lua` for a detailed list of current features. This is just a quick list of what's available.
-
-- Autocompletion (with snippets)
-- Surround current selection
-- Async command execution `:Dispatch`
-- Easy commenting
-- Multiple cursors
-- Fuzzy finder
-- Auto pairs (automatically close brackets)
-- Hotkey helper
-- Fancy statusline
-- Fancy tab bar
-- Treesitter for better syntaxt highlighting
-- Minimap (currently disabled due to some bugs)
-- Diagnostics view
-- Linting
-    - Typescript
-    - Bash
-    - JSON
-- Markdown previewer
-- Git highlighting on the line number
-- Live Git blame (virtual text)
-- Git diff viewer
-- Tabnine AI autocomplete
-
