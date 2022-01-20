@@ -362,6 +362,27 @@ return packer.startup(function(use)
     end,
   })
 
+  --[[
+  -- nvim-code-action-menu - floating window for code actions
+  -- https://github.com/weilbith/nvim-code-action-menu
+  --]]
+  use({
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+    requires = 'kosayoda/nvim-lightbulb',
+  })
+
+  --[[
+  -- nvim-code-action-lightbulb - gutter notification for code actions
+  -- https://github.com/kosayoda/nvim-lightbulb
+  --]]
+  use({
+    'kosayoda/nvim-lightbulb',
+    config = function()
+      require('nvim-lightbulb-cfg.config')
+    end
+  })
+
   -- EndSection - General
 
   -- Section - Bash

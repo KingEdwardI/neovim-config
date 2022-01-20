@@ -1,4 +1,8 @@
-# Neovide
+# Neovenom
+
+### Name Ideas
+
+Neovide is 
 
 ## Introduction
 
@@ -14,10 +18,15 @@ what I've done in the past and end up repeating the same mistakes. Hopefully it'
 to come across this project (this _is_ only included in my dotfiles repo for now, I should really break it out into
 it's own).
 
-## Current functionality
-
 #### Package Manager
 
 [`packer.nvim`](https://github.com/wbthomason/packer.nvim) Is the current lua-standard package manager that I'll
 be using until something quantifiably better comes along.
 
+### Notes
+
+- Keymappings for plugins need to be loaded separately from the configurations. Lazy loaded plugins that are loaded
+  on command (as opposed to filetype, etc.) need those mappings available.
+  - There may be a better way to do this...
+- Configs are loaded as part of the `use` method so that if a plugin is not available, errors aren't thrown, and so
+  that configurations for lazy loaded plugins are not loaded until necessary.

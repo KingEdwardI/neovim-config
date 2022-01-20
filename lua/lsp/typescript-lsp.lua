@@ -1,6 +1,9 @@
 local config = require('lsp.config')
 local utils = require('utils')
 local ts_utils = require('nvim-lsp-ts-utils')
+local null_ls = require('null-ls')
+
+local builtins = null_ls.builtins
 local set_keymap = utils.set_keymap
 
 require('lspconfig').tsserver.setup({
@@ -16,19 +19,12 @@ require('lspconfig').tsserver.setup({
 
       -- import all
       import_all_timeout = 5000, -- ms
-      -- lower numbers = higher priority
-      import_all_priorities = {
-        same_file = 1, -- add to existing import statement
-        local_files = 1, -- git files or files with relative path markers
-        buffer_content = 3, -- loaded buffer content
-        buffers = 4, -- loaded buffer names
-      },
       import_all_scan_buffers = 100,
       import_all_select_source = false,
 
       -- filter diagnostics
       filter_out_diagnostics_by_severity = {},
-      filter_out_diagnostics_by_code = {},
+      filter_out_diagnostics_by_code = { 80001 },
 
       -- inlay hints
       auto_inlay_hints = true,
@@ -61,4 +57,24 @@ require('lspconfig').tsserver.setup({
   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
   root_dir = require('lspconfig/util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+})
+
+null_ls.setup({
+  sources = {
+    -- Javascript
+    builtins.diagnostics.eslint_d, -- eslint or eslint_d
+    builtins.code_actions.eslint_d, -- eslint or eslint_d
+    builtins.formatting.eslint_d, -- prettier, eslint, eslint_d, or prettierd
+
+    -- Lua
+    builtins.formatting.stylua,
+    builtins.diagnostics.luacheck.with({ extra_args = { '--global vim' } }),
+
+    builtins.completion.spell,
+  },
+  on_attach = function(client, bufnr)
+    vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
+
+    config.on_attach(client, bufnr)
+  end,
 })
