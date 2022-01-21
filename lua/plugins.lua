@@ -100,7 +100,9 @@ return packer.startup(function(use)
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'quangnguyen30192/cmp-nvim-ultisnips',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
+      -- 'quangnguyen30192/cmp-nvim-ultisnips',
     },
     config = function()
       require('nvim-cmp.config')
@@ -380,7 +382,7 @@ return packer.startup(function(use)
     'kosayoda/nvim-lightbulb',
     config = function()
       require('nvim-lightbulb-cfg.config')
-    end
+    end,
   })
 
   -- EndSection - General
