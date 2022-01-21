@@ -1,12 +1,13 @@
+local lspconfig = require('lspconfig')
 local config = require('lsp.config')
 local utils = require('utils')
 local ts_utils = require('nvim-lsp-ts-utils')
 local null_ls = require('null-ls')
 
 local builtins = null_ls.builtins
-local set_keymap = utils.set_keymap
+local buf_map = utils.buf_map
 
-require('lspconfig').tsserver.setup({
+lspconfig.tsserver.setup({
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
@@ -39,7 +40,7 @@ require('lspconfig').tsserver.setup({
       eslint_enable_diagnostics = true,
       eslint_bin = 'eslint_d', -- Also doesn't work with 'eslint'
 
-      -- Enable formatting using Prettier
+      -- Enable formatting using eslint_d
       enable_formatting = true,
       formatter = 'eslint_d',
     })
@@ -48,8 +49,8 @@ require('lspconfig').tsserver.setup({
     ts_utils.setup_client(client)
 
     -- no default maps, so you may want to define some here
-    set_keymap('n', '<leader>im', ':TSLspImportCurrent<cr>', {})
-    set_keymap('n', '<leader>ii', ':TSLspImportAll<cr>', {})
+    buf_map(bufnr, 'n', '<leader>im', ':TSLspImportCurrent<cr>')
+    buf_map(bufnr, 'n', '<leader>ii', ':TSLspImportAll<cr>')
 
     config.on_attach(client, bufnr)
   end,
@@ -69,12 +70,6 @@ null_ls.setup({
     -- Lua
     builtins.formatting.stylua,
     builtins.diagnostics.luacheck.with({ extra_args = { '--global vim' } }),
-
-    builtins.completion.spell,
   },
-  on_attach = function(client, bufnr)
-    vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]])
-
-    config.on_attach(client, bufnr)
-  end,
+  on_attach = config.on_attach,
 })
