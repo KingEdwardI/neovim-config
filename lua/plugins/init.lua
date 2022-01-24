@@ -486,6 +486,17 @@ return packer.startup(function(use)
   -- Section - Git
 
   --[[
+  -- lazygit.nvim - LazyGit support
+  -- https://github.com/kdheepak/lazygit.nvim
+  --]]
+  use({
+    'kdheepak/lazygit.nvim',
+    config = function()
+      require('plugins.lazygit.config')
+    end,
+  })
+
+  --[[
   -- vim-signify - adds git highlighting to the line number
   -- https://github.com/mhinz/vim-signify
   --]]
