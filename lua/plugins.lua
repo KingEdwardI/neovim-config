@@ -69,7 +69,7 @@ return packer.startup(function(use)
   use('jose-elias-alvarez/null-ls.nvim')
 
   --[[
-  -- lsp-colors - fill in lsp colors if colorscheme doesn't support it (jellybeans is old af and I'm not switching)
+  -- lsp-colors - fill in lsp colors if colorscheme doesn't support it
   -- https://github.com/folke/lsp-colors.nvim
   --]]
   use({
@@ -352,6 +352,12 @@ return packer.startup(function(use)
   -- https://github.com/lewis6991/impatient.nvim.git
   --]]
   use('lewis6991/impatient.nvim')
+
+  --[[
+  -- filetype.nvim - faster filetype detection loading
+  -- https://github.com/nathom/filetype.nvim
+  --]]
+  use('nathom/filetype.nvim')
 
   --[[
   -- nvim-spectre - search/replace tool
