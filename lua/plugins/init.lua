@@ -1,7 +1,7 @@
 local fn = vim.fn
 local PackerBootstrap
 
---Automatically install packer
+-- Automatically install packer
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -178,14 +178,19 @@ return packer.startup(function(use)
   })
 
   --[[
-  -- vim-commentary - easy commenting
-  -- https://github.com/tpope/vim-commentary
+  -- Comment.nvim - easy commenting
+  -- https://github.com/numToStr/Comment.nvim
   --]]
-  use('tpope/vim-commentary')
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('plugins.comment.config')
+    end,
+  })
 
   --[[
-  -- ---- vim-visual-multi - multiple cursors
-  -- ---- https://github.com/mg979/vim-visual-multi
+  -- vim-visual-multi - multiple cursors
+  -- https://github.com/mg979/vim-visual-multi
   --]]
   use({
     'mg979/vim-visual-multi',
