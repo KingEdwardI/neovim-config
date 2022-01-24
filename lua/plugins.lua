@@ -45,6 +45,12 @@ return packer.startup(function(use)
   -- Section - General
 
   --[[
+  -- FixCursorHold.nvim - fix a performance bug with Cursorhold
+  -- https://github.com/antoinemadec/FixCursorHold.nvim
+  --]]
+  use('antoinemadec/FixCursorHold.nvim')
+
+  --[[
   -- lsp config
   -- https://github.com/neovim/nvim-lspconfig
   --]]
