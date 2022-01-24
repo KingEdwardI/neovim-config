@@ -374,6 +374,9 @@ return packer.startup(function(use)
     requires = 'kosayoda/nvim-lightbulb',
   })
 
+  --TODO: Look into: https://github.com/glepnir/lspsaga.nvim
+  -- It has a code action menu and a bunch of other floating windows
+
   --[[
   -- nvim-code-action-lightbulb - gutter notification for code actions
   -- https://github.com/kosayoda/nvim-lightbulb
@@ -413,7 +416,7 @@ return packer.startup(function(use)
   use({
     'rhysd/vim-fixjson',
     opt = true,
-    ft = { 'json' },
+    ft = { 'json', 'json5' },
     config = function()
       require('fix-json.config')
     end,
