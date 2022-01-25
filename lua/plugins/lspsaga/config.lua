@@ -1,4 +1,7 @@
-local saga = require('lspsaga')
+local utils = require('utils')
+local invariant_require = utils.invariant_require
+
+local saga = invariant_require('lspsaga')
 
 saga.setup({
   finder_action_keys = {
