@@ -1,21 +1,20 @@
 local utils = require('utils')
 local set_keymap = utils.set_keymap
 
-set_keymap('n', '<leader>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
-set_keymap('n', '<leader>xw', '<cmd>Trouble workspace_diagnostics<cr>', { silent = true, noremap = true })
-set_keymap('n', '<leader>xd', '<cmd>Trouble lsp_document_diagnostics<cr>', { silent = true, noremap = true })
-set_keymap('n', '<leader>xl', '<cmd>Trouble loclist<cr>', { silent = true, noremap = true })
-set_keymap('n', '<leader>xq', '<cmd>Trouble quickfix<cr>', { silent = true, noremap = true })
-set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', { silent = true, noremap = true })
+set_keymap('n', '<Leader>xx', '<Cmd>TroubleToggle<CR>', { silent = true, noremap = true })
+set_keymap('n', '<Leader>xw', '<Cmd>Trouble workspace_diagnostics<CR>', { silent = true, noremap = true })
+set_keymap('n', '<Leader>xd', '<Cmd>Trouble lsp_document_diagnostics<CR>', { silent = true, noremap = true })
+set_keymap('n', '<Leader>xl', '<Cmd>Trouble loclist<CR>', { silent = true, noremap = true })
+set_keymap('n', '<Leader>xq', '<Cmd>Trouble quickfix<CR>', { silent = true, noremap = true })
 set_keymap(
   'n',
-  '<leader>xn',
-  "<cmd>lua require('trouble').next({skip_groups = true, jump = true})<cr>",
+  '<Leader>xn',
+  "<Cmd>lua require('trouble').next({skip_groups = true, jump = true})<CR>",
   { silent = true, noremap = true }
 )
 set_keymap(
   'n',
-  '<leader>xN',
-  "<cmd>lua require('trouble').previous({skip_groups = true, jump = true})<cr>",
+  '<Leader>xN',
+  "<Cmd>lua require('trouble').previous({skip_groups = true, jump = true})<CR>",
   { silent = true, noremap = true }
 )
