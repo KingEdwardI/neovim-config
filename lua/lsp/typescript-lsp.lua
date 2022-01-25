@@ -49,8 +49,8 @@ lspconfig.tsserver.setup({
     ts_utils.setup_client(client)
 
     -- no default maps, so you may want to define some here
-    buf_map(bufnr, 'n', '<leader>im', ':TSLspImportCurrent<cr>')
-    buf_map(bufnr, 'n', '<leader>ii', ':TSLspImportAll<cr>')
+    buf_map(bufnr, 'n', '<Leader>im', ':TSLspImportCurrent<CR>')
+    buf_map(bufnr, 'n', '<Leader>ii', ':TSLspImportAll<CR>')
 
     config.on_attach(client, bufnr)
   end,
