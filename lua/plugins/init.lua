@@ -413,6 +413,7 @@ return packer.startup(function(use)
     config = function()
       require('plugins.lspsaga.config')
     end,
+    cmd = { 'Lspsaga' },
   })
 
   --TODO: Look into: https://github.com/glepnir/lspsaga.nvim
