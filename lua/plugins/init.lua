@@ -1,3 +1,5 @@
+local utils = require('utils')
+local invariant_require = utils.invariant_require
 local fn = vim.fn
 local PackerBootstrap
 
@@ -16,11 +18,21 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd([[packadd packer.nvim]])
 end
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
-  print('Packer failed to load')
-  return
+local packer = invariant_require('packer')
+
+if not packer then
+  vim.cmd([[
+    echohl ErrorMsg
+    echo "Error occured while initializing Packer"
+    echohl None
+    echo "You might need to re-install Packer."
+    echohl MoreMsg
+    echo "rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim;\\"
+    echo "git clone --depth 1 https://github.com/wbthomason/packer.nvim\\"
+    echo "  ~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    echohl None
+  ]])
+  return false
 end
 
 -- Auto compile when there are changes in plugins.lua
