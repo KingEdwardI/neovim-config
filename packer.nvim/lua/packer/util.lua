@@ -2,16 +2,20 @@ local util = {}
 
 util.map = function(func, seq)
   local result = {}
-  for _, v in ipairs(seq) do table.insert(result, func(v)) end
+  for _, v in ipairs(seq) do
+    table.insert(result, func(v))
+  end
 
   return result
 end
 
 util.partition = function(sub, seq)
   local sub_vals = {}
-  for _, val in ipairs(sub) do sub_vals[val] = true end
+  for _, val in ipairs(sub) do
+    sub_vals[val] = true
+  end
 
-  local result = {{}, {}}
+  local result = { {}, {} }
   for _, val in ipairs(seq) do
     if sub_vals[val] then
       table.insert(result[1], val)
@@ -34,17 +38,19 @@ end
 if jit ~= nil then
   util.is_windows = jit.os == 'Windows'
 else
-  util.is_windows = package.config:sub(1,1) == '\\'
+  util.is_windows = package.config:sub(1, 1) == '\\'
 end
 
 util.get_separator = function()
-  if util.is_windows then return '\\' end
+  if util.is_windows then
+    return '\\'
+  end
   return '/'
 end
 
 util.join_paths = function(...)
   local separator = util.get_separator()
-  return table.concat({...}, separator)
+  return table.concat({ ... }, separator)
 end
 
 util.get_plugin_full_name = function(plugin)
@@ -54,7 +60,9 @@ util.get_plugin_full_name = function(plugin)
     plugin_name = plugin_name .. '/' .. plugin.branch
   end
 
-  if plugin.rev then plugin_name = plugin_name .. '@' .. plugin.rev end
+  if plugin.rev then
+    plugin_name = plugin_name .. '@' .. plugin.rev
+  end
 
   return plugin_name
 end
@@ -62,11 +70,13 @@ end
 util.memoize = function(func)
   return setmetatable({}, {
     __index = function(self, k)
-      local v = func(k);
-      self[k] = v;
+      local v = func(k)
+      self[k] = v
       return v
     end,
-    __call = function(self, k) return self[k] end
+    __call = function(self, k)
+      return self[k]
+    end,
   })
 end
 
@@ -86,7 +96,7 @@ util.deep_extend = function(policy, ...)
     end
   end
 
-  for _, t in ipairs({...}) do
+  for _, t in ipairs({ ... }) do
     for k, v in pairs(t) do
       if result[k] ~= nil then
         result[k] = helper(policy, k, result[k], v)
@@ -116,7 +126,7 @@ util.float = function()
     width = width,
     height = height,
     col = left,
-    row = top
+    row = top,
   }
 
   local buf = vim.api.nvim_create_buf(false, true)

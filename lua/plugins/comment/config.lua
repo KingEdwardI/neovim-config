@@ -24,7 +24,7 @@ comment.setup({
   -- LHS of operator-pending mappings in NORMAL + VISUAL mode
   opleader = {
     -- Line-comment keymap
-    line = ',cc',
+    line = ',c',
     -- Block-comment keymap
     block = ',cb',
   },

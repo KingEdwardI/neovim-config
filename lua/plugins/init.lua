@@ -385,10 +385,22 @@ return packer.startup(function(use)
   -- nvim-code-action-menu - floating window for code actions
   -- https://github.com/weilbith/nvim-code-action-menu
   --]]
+  -- use({
+  --   'weilbith/nvim-code-action-menu',
+  --   cmd = 'CodeActionMenu',
+  --   requires = 'kosayoda/nvim-lightbulb',
+  -- })
+
+  --[[
+  -- lspsaga - floating window for various things
+  -- https://github.com/tami5/lspsaga.nvim 
+  --]]
   use({
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu',
-    requires = 'kosayoda/nvim-lightbulb',
+    'tami5/lspsaga.nvim',
+    requires = 'neovim/nvim-lspconfig',
+    config = function()
+      require('plugins.lspsaga.config')
+    end,
   })
 
   --TODO: Look into: https://github.com/glepnir/lspsaga.nvim
