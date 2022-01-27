@@ -13,5 +13,6 @@ if saga then
       scroll_down = '<C-f>',
       scroll_up = '<C-b>',
     },
+    max_preview_lines = 50,
   })
 end

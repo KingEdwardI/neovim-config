@@ -61,6 +61,7 @@ lspconfig.tsserver.setup({
 })
 
 null_ls.setup({
+  debug = true,
   sources = {
     -- Javascript
     builtins.diagnostics.eslint_d, -- eslint or eslint_d

@@ -405,15 +405,25 @@ return packer.startup(function(use)
 
   --[[
   -- lspsaga - floating window for various things
-  -- https://github.com/tami5/lspsaga.nvim 
+  -- https://github.com/tami5/lspsaga.nvim
   --]]
   use({
     'tami5/lspsaga.nvim',
+    opt = true,
     requires = 'neovim/nvim-lspconfig',
     config = function()
       require('plugins.lspsaga.config')
     end,
     cmd = { 'Lspsaga' },
+    ft = {
+      'javascript',
+      'javascriptreact',
+      'javascript.jsx',
+      'typescript',
+      'typescriptreact',
+      'typescript.tsx',
+      'lua',
+    },
   })
 
   --TODO: Look into: https://github.com/glepnir/lspsaga.nvim
