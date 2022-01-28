@@ -394,16 +394,6 @@ return packer.startup(function(use)
   })
 
   --[[
-  -- nvim-code-action-menu - floating window for code actions
-  -- https://github.com/weilbith/nvim-code-action-menu
-  --]]
-  -- use({
-  --   'weilbith/nvim-code-action-menu',
-  --   cmd = 'CodeActionMenu',
-  --   requires = 'kosayoda/nvim-lightbulb',
-  -- })
-
-  --[[
   -- lspsaga - floating window for various things
   -- https://github.com/tami5/lspsaga.nvim
   --]]
