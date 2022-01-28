@@ -386,12 +386,7 @@ return packer.startup(function(use)
   -- nvim-spectre - search/replace tool
   -- https://github.com/nvim-pack/nvim-spectre
   --]]
-  use({
-    'windwp/nvim-spectre',
-    config = function()
-      require('plugins.nvim-spectre.config')
-    end,
-  })
+  use( 'windwp/nvim-spectre')
 
   --[[
   -- lspsaga - floating window for various things

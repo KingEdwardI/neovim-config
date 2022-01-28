@@ -1,6 +1,10 @@
-local Rule = require('nvim-autopairs.rule')
-local npairs = require('nvim-autopairs')
+local utils = require('utils')
+local invariant_require = utils.invariant_require
+local npairs = invariant_require('nvim-autopairs')
+local Rule = invariant_require('nvim-autopairs.Rule')
 
-npairs.setup({})
+if npairs then
+  npairs.setup({})
 
-npairs.add_rule(Rule('<!--', '-->', { 'html', 'markdown' }))
+  npairs.add_rule(Rule('<!--', '-->', { 'html', 'markdown' }))
+end
