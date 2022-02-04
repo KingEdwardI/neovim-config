@@ -204,11 +204,7 @@ return packer.startup(function(use)
   -- vim-visual-multi - multiple cursors
   -- https://github.com/mg979/vim-visual-multi
   --]]
-  use({
-    'mg979/vim-visual-multi',
-    opt = true,
-    event = 'InsertEnter',
-  })
+  use('mg979/vim-visual-multi')
 
   --[[
   -- vim-matchup - extends the `%` command
@@ -386,7 +382,7 @@ return packer.startup(function(use)
   -- nvim-spectre - search/replace tool
   -- https://github.com/nvim-pack/nvim-spectre
   --]]
-  use( 'windwp/nvim-spectre')
+  use('windwp/nvim-spectre')
 
   --[[
   -- lspsaga - floating window for various things

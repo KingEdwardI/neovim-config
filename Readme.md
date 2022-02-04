@@ -3,7 +3,8 @@
 ### Name Ideas
 
 Neovide is taken by another nvim ui :/
-Neovenom is pretty dumb
+
+Neovenom is pretty dumb imo, but it works for now.
 
 ## Introduction
 
