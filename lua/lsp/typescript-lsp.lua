@@ -47,6 +47,8 @@ if lspconfig and ts_utils and null_ls then
         -- Enable formatting using eslint_d
         enable_formatting = true,
         formatter = 'eslint_d',
+
+        always_organize_imports = false,
       })
 
       -- required to fix code action ranges and filter diagnostics
@@ -58,7 +60,12 @@ if lspconfig and ts_utils and null_ls then
 
       config.on_attach(client, bufnr)
     end,
-    init_options = ts_utils.init_options,
+    init_options = {
+      unpack(ts_utils.init_options),
+      preferences = {
+        importModuleSpecifierPreference = 'relative',
+      },
+    },
     filetypes = {
       'javascript',
       'javascriptreact',
