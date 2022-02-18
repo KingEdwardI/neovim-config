@@ -63,7 +63,8 @@ if lspconfig and ts_utils and null_ls then
     init_options = {
       unpack(ts_utils.init_options),
       preferences = {
-        importModuleSpecifierPreference = 'relative',
+        unpack(ts_utils.init_options.preferences),
+        importModuleSpecifierPreference = 'project-relative',
       },
     },
     filetypes = {
