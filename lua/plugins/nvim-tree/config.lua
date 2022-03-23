@@ -61,7 +61,7 @@ if nvim_tree and tree_config then
       mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings
-        custom_only = false,
+        custom_only = true,
         -- list of mappings to set on the tree manually
         list = {
           { key = { '<CR>', 'o', '<2-LeftMouse>' }, cb = tree_cb('edit') },
@@ -92,7 +92,7 @@ if nvim_tree and tree_config then
           { key = 'gy', cb = tree_cb('copy_absolute_path') },
           { key = '[c', cb = tree_cb('prev_git_item') },
           { key = ']c', cb = tree_cb('next_git_item') },
-          { key = '-', cb = tree_cb('dir_up') },
+          { key = '^', cb = tree_cb('dir_up') },
           { key = 's', cb = tree_cb('system_open') },
           { key = 'q', cb = tree_cb('close') },
           { key = 'g?', cb = tree_cb('toggle_help') },
