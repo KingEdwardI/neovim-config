@@ -54,8 +54,6 @@ if nvim_tree and tree_config then
       width = 35,
       -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
       side = 'left',
-      -- if true the tree will resize itself after opening a file
-      auto_resize = true,
       mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings
@@ -96,6 +94,9 @@ if nvim_tree and tree_config then
           { key = 'g?', cb = tree_cb('toggle_help') },
         },
       },
+    },
+    actions = {
+      use_system_clipboard = false,
     },
   })
 

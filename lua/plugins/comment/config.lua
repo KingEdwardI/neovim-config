@@ -9,7 +9,7 @@ if comment then
 
     -- Whether the cursor should stay at its position
     -- NOTE: This only affects NORMAL mode mappings and doesn't work with dot-repeat
-    sticky = true,
+    sticky = false,
 
     -- Lines to be ignored while comment/uncomment.
     -- Could be a regex string or a function that returns a regex string.
@@ -56,7 +56,6 @@ if comment then
       -- Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
       extended = false,
     },
-
     -- Pre-hook, called before commenting the line
     pre_hook = nil,
 

@@ -4,6 +4,13 @@ set iskeyword+=-
 
 "Show character for soft wrapped lines
 set breakindent showbreak=┕→ 
+
+" Don't use stupid tabs
+set expandtab
+set tabstop=2
+
+" start scrolling 5 lines before cursor reaches the edge
+set scrolloff=5
 ]])
 
 -- hello-world

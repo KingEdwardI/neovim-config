@@ -195,6 +195,7 @@ return packer.startup(function(use)
   --]]
   use({
     'numToStr/Comment.nvim',
+    tag = 'v0.6',
     config = function()
       require('plugins.comment.config')
     end,
@@ -310,8 +311,8 @@ return packer.startup(function(use)
   })
 
   --[[
-  --nvim-treesitter - better syntax highlighting
-  --https://github.com/nvim-treesitter/nvim-treesitter
+  -- nvim-treesitter - better syntax highlighting
+  -- https://github.com/nvim-treesitter/nvim-treesitter
   --]]
   use({
     'nvim-treesitter/nvim-treesitter',
