@@ -126,11 +126,12 @@ return packer.startup(function(use)
       require('plugins.nvim-cmp.config')
     end,
   })
-  use({
-    'tzachar/cmp-tabnine',
-    requires = 'hrsh7th/nvim-cmp',
-    run = './install.sh',
-  })
+  -- Might come back to this later.
+  -- use({
+  --   'tzachar/cmp-tabnine',
+  --   requires = 'hrsh7th/nvim-cmp',
+  --   run = './install.sh',
+  -- })
 
   --[[
   -- ultisnips - snippet engine
