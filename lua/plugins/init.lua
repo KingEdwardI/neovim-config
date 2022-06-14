@@ -110,7 +110,7 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim')
 
   --[[
-  -- nvim-compe - Auto completion plugin for nvim
+  -- nvim-compe - Autocompletion plugin for nvim
   -- https://github.com/hrsh7th/nvim-compe
   --]]
   use({
@@ -345,10 +345,10 @@ return packer.startup(function(use)
     end,
   })
 
-  ----[[
-  ---- vim-choosewin - choose which window to jump to
-  ---- https://github.com/t9md/vim-choosewin
-  ----]]
+  --[[
+  -- vim-choosewin - choose which window to jump to
+  -- https://github.com/t9md/vim-choosewin
+  --]]
   use({
     't9md/vim-choosewin',
     config = function()
@@ -408,7 +408,7 @@ return packer.startup(function(use)
     },
   })
 
-  --TODO: Look into: https://github.com/glepnir/lspsaga.nvim
+  -- TODO: Look into: https://github.com/glepnir/lspsaga.nvim
   -- It has a code action menu and a bunch of other floating windows
 
   --[[
