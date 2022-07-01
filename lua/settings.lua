@@ -11,6 +11,10 @@ set tabstop=2
 
 " start scrolling 5 lines before cursor reaches the edge
 set scrolloff=5
+
+" set foldmethod and open all folds
+set foldmethod=indent
+set foldlevelstart=99
 ]])
 
 -- hello-world

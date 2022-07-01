@@ -120,12 +120,20 @@ return packer.startup(function(use)
       'hrsh7th/cmp-buffer',
       'hrsh7th/vim-vsnip',
       'hrsh7th/vim-vsnip-integ',
-      -- 'quangnguyen30192/cmp-nvim-ultisnips',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'molleweide/LuaSnip-snippets.nvim',
+      -- 'rafamadriz/friendly-snippets',
     },
     config = function()
       require('plugins.nvim-cmp.config')
     end,
   })
+  -- use('rafamadriz/friendly-snippets')
+  use('molleweide/LuaSnip-snippets.nvim')
+  use('L3MON4D3/LuaSnip')
+  use('saadparwaiz1/cmp_luasnip')
+
   -- Might come back to this later.
   -- use({
   --   'tzachar/cmp-tabnine',

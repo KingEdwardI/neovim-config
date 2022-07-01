@@ -1,9 +1,12 @@
 local utils = require('utils')
 local invariant_require = utils.invariant_require
 -- Setup nvim-cmp.
+-- local tabnine = invariant_require('cmp_tabnine.config')
 local lspkind = invariant_require('lspkind')
 local cmp = invariant_require('cmp')
--- local tabnine = invariant_require('cmp_tabnine.config')
+-- local luasnip_vscode_loaders = invariant_require('luasnip.loaders.from_vscode')
+local luasnip = invariant_require('luasnip')
+local luasnip_snippets = invariant_require('luasnip_snippets')
 
 local source_mapping = {
   buffer = '[Buffer]',
@@ -13,15 +16,16 @@ local source_mapping = {
   path = '[Path]',
 }
 
-if lspkind and cmp then
+if lspkind and cmp and luasnip and luasnip_snippets then
   cmp.setup({
     snippet = {
       expand = function(args)
         -- For `vsnip` user.
-        vim.fn['vsnip#anonymous'](args.body)
+        -- vim.fn['vsnip#anonymous'](args.body)
 
         -- For `luasnip` user.
-        -- require('luasnip').lsp_expand(args.body)
+        luasnip.lsp_expand(args.body)
+        luasnip.snippets = luasnip_snippets.load_snippets()
 
         -- For `ultisnips` user.
         -- vim.fn['UltiSnips#Anon'](args.body)
@@ -43,10 +47,10 @@ if lspkind and cmp then
       { name = 'nvim_lsp' },
 
       -- For vsnip user.
-      { name = 'vsnip' },
+      -- { name = 'vsnip' },
 
       -- For luasnip user.
-      -- { name = 'luasnip' },
+      { name = 'luasnip' },
 
       -- For ultisnips user.
       -- { name = 'ultisnips' },
