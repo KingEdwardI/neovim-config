@@ -15,6 +15,11 @@ set scrolloff=5
 " set foldmethod and open all folds
 set foldmethod=indent
 set foldlevelstart=99
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+" Set filetype to bash for zsh files because the syntax highlighting is better
+autocmd FileType zsh :set ft=bash
 ]])
 
 -- hello-world

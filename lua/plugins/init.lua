@@ -560,6 +560,17 @@ return packer.startup(function(use)
     end,
   })
 
+  --[[
+  -- git-conflict - a better mergetool
+  -- https://github.com/akinsho/git-conflict.nvim
+  --]]
+  use({
+    'akinsho/git-conflict.nvim',
+    config = function()
+      require('git-conflict').setup()
+    end,
+  })
+
   -- EndSection - Git
 
   -- Section - Debugging
