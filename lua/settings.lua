@@ -20,6 +20,10 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Set filetype to bash for zsh files because the syntax highlighting is better
 autocmd FileType zsh :set ft=bash
+
+" Disable unused lsp
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
 ]])
 
 -- hello-world
