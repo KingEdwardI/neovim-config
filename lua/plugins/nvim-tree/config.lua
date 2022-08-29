@@ -181,7 +181,7 @@ let g:nvim_tree_special_files = { "README.md": 1 }
 
   -- a list of groups can be found at `:help nvim_tree_highlight`
   vim.cmd([[
-:highlight NvimTreeFolderIcon guibg=blue
-autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-]])
+    :highlight NvimTreeFolderIcon guibg=blue
+    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+  ]])
 end

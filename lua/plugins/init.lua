@@ -442,7 +442,7 @@ return packer.startup(function(use)
   use({
     'itspriddle/vim-shellcheck',
     opt = true,
-    ft = { 'sh' },
+    ft = { 'sh', 'bash', 'zsh' },
     config = function()
       require('plugins.shellcheck.config')
     end,
