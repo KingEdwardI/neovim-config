@@ -332,6 +332,18 @@ return packer.startup(function(use)
   })
 
   --[[
+  -- vim-gutentags - generate tags for a project for go to definition
+  -- https://github.com/ludovicchabant/vim-gutentags
+  --]]
+  --
+  use({
+    'ludovicchabant/vim-gutentags',
+    config = function()
+      require('plugins.vim-gutentags.config')
+    end,
+  })
+
+  --[[
   -- minimap.vim - minimap
   -- https://github.com/wfxr/minimap.vim
   --]]
