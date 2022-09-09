@@ -417,9 +417,6 @@ return packer.startup(function(use)
     },
   })
 
-  -- TODO: Look into: https://github.com/glepnir/lspsaga.nvim
-  -- It has a code action menu and a bunch of other floating windows
-
   --[[
   -- nvim-code-action-lightbulb - gutter notification for code actions
   -- https://github.com/kosayoda/nvim-lightbulb
@@ -428,6 +425,17 @@ return packer.startup(function(use)
     'kosayoda/nvim-lightbulb',
     config = function()
       require('plugins.nvim-lightbulb.config')
+    end,
+  })
+
+  --[[
+  -- indent-blankline.nvim - indentation guides
+  -- https://github.com/lukas-reineke/indent-blankline.nvim
+  --]]
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline.config')
     end,
   })
 
