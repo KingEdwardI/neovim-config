@@ -1,6 +1,9 @@
 local utils = {}
 
-utils.set_keymap = vim.api.nvim_set_keymap
+utils.set_keymap = function(mode, mapping, command, opts)
+  opts = opts or {}
+  vim.api.nvim_set_keymap(mode, mapping, command, opts)
+end
 
 utils.buf_map = function(bufnr, mode, lhs, rhs, opts)
   vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts or {
