@@ -520,6 +520,12 @@ return packer.startup(function(use)
     ft = { 'markdown', 'plantuml' },
   })
 
+  --[[
+  -- vim-mdx-js - mdx syntax highlighting
+  -- https://github.com/jxnblk/vim-mdx-js
+  --]]
+  use({ 'jxnblk/vim-mdx-js' })
+
   -- EndSection - Markdown
 
   -- Section - Git
