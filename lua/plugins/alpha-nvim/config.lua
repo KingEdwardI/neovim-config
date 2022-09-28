@@ -6,35 +6,95 @@ local alpha = invariant_require('alpha')
 local dashboard = invariant_require('alpha.themes.dashboard')
 
 vim.cmd([[
-function Highlight_chocobo()
+  let s:chocobo_color1= 0
+  let s:chocobo_color_2= 0
+  let s:chocobo_color_3= 0
+  let s:chocobo_color_4 = 0
+  let s:chocobo_color_5  = 0
+  let s:chocobo_color_6  = 0
+  let s:chocobo_color_7  = 0
+  let s:chocobo_color_8  = 0
+  let s:chocobo_color_9 = 0
+  let s:chocobo_color_10 = 0
+  let s:chocobo_color_11 = 0
+  let s:chocobo_color_12= 0
+  let s:chocobo_color_13= 0
+  let s:chocobo_color_14 = 0
+  let s:chocobo_color_15= 0
+  let s:chocobo_color_16 = 0
+  let s:chocobo_color_17= 0
+  let s:chocobo_color_18= 0
+  let s:chocobo_color_19 = 0
+function HighlightChocobo()
   highlight ChocoboGold guifg=#AB893F
   highlight ChocoboYellow guifg=#E7BD3E
   highlight ChocoboPaleYellow guifg=#C7B290
   highlight ChocoboPurple guifg=#5E4683
   highlight ChocoboBlue guifg=#6486AC
   highlight ChocoboOrange guifg=#AB5729
-  call matchadd('ChocoboYellow', '#')
-  call matchadd('ChocoboGold', '(')
-  call matchadd('ChocoboGold', '%')
-  call matchadd('ChocoboGold', '\.')
-  call matchadd('ChocoboYellow', '/#')
-  call matchadd('ChocoboYellow', '#\*')
-  call matchadd('ChocoboPaleYellow', '@')
-  call matchadd('ChocoboPurple', '/\*\*')
-  call matchadd('ChocoboBlue', '//')
-  call matchadd('ChocoboPurple', '\*\*')
-  call matchadd('ChocoboOrange', '/\\(')
-  call matchadd('ChocoboOrange', ' \*\*')
-  call matchadd('ChocoboOrange', '\*\* ')
-  call matchadd('ChocoboOrange', '/(')
-  call matchadd('ChocoboOrange', ' ///// ')
-  call matchadd('ChocoboOrange', '((//')
-  call matchadd('ChocoboOrange', '\*////')
-  call matchadd('ChocoboOrange', '//// ')
-  call matchadd('ChocoboOrange', '((//')
+  let s:chocobo_color1 = matchadd('ChocoboYellow', '#')
+  let s:chocobo_color_2 = matchadd('ChocoboGold', '(')
+  let s:chocobo_color_3 = matchadd('ChocoboGold', '%')
+  let s:chocobo_color_4 = matchadd('ChocoboGold', '\.')
+  let s:chocobo_color_5 = matchadd('ChocoboYellow', '/#')
+  let s:chocobo_color_6 = matchadd('ChocoboYellow', '#\*')
+  let s:chocobo_color_7 = matchadd('ChocoboPaleYellow', '@')
+  let s:chocobo_color_8 = matchadd('ChocoboPurple', '/\*\*')
+  let s:chocobo_color_9 = matchadd('ChocoboBlue', '//')
+  let s:chocobo_color_10 = matchadd('ChocoboPurple', '\*\*')
+  let s:chocobo_color_11 = matchadd('ChocoboOrange', '/\\(')
+  let s:chocobo_color_12 = matchadd('ChocoboOrange', ' \*\*')
+  let s:chocobo_color_13 = matchadd('ChocoboOrange', '\*\* ')
+  let s:chocobo_color_14 = matchadd('ChocoboOrange', '/(')
+  let s:chocobo_color_15 = matchadd('ChocoboOrange', ' ///// ')
+  let s:chocobo_color_16 = matchadd('ChocoboOrange', '((//')
+  let s:chocobo_color_17 = matchadd('ChocoboOrange', '\*////')
+  let s:chocobo_color_18 = matchadd('ChocoboOrange', '//// ')
+  let s:chocobo_color_19 = matchadd('ChocoboOrange', '((//')
+endfunction
+function RemoveChocoboHighlight()
+  if &ft != 'alpha'
+    call matchdelete(s:chocobo_color1)     
+    call matchdelete(s:chocobo_color_2)
+    call matchdelete(s:chocobo_color_3)
+    call matchdelete(s:chocobo_color_4)
+    call matchdelete(s:chocobo_color_5)
+    call matchdelete(s:chocobo_color_6)
+    call matchdelete(s:chocobo_color_7)
+    call matchdelete(s:chocobo_color_8)
+    call matchdelete(s:chocobo_color_9)
+    call matchdelete(s:chocobo_color_10)
+    call matchdelete(s:chocobo_color_11)
+    call matchdelete(s:chocobo_color_12)
+    call matchdelete(s:chocobo_color_13)
+    call matchdelete(s:chocobo_color_14)
+    call matchdelete(s:chocobo_color_15)
+    call matchdelete(s:chocobo_color_16)
+    call matchdelete(s:chocobo_color_17)
+    call matchdelete(s:chocobo_color_18)
+    call matchdelete(s:chocobo_color_19)
+  endif
 endfunction
 
-autocmd FileType alpha call Highlight_chocobo()
+function OpenAlpha()
+    let cnt = 0
+    for i in range(0, bufnr("$"))
+        if buflisted(i)
+            cnt += 1
+        endif
+    endfor
+    if cnt <= 1
+      Alpha
+    endif
+endfunction
+
+function Echo()
+  echo "doin the thing"
+endfunction
+
+autocmd FileType alpha call HighlightChocobo()
+autocmd FileType * if &ft!="alpha" | call RemoveChocoboHighlight() | endif
+" autocmd BufDelete call OpenAlpha()
 ]])
 
 local chocobo_banner = {
