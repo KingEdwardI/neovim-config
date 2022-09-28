@@ -528,6 +528,19 @@ return packer.startup(function(use)
 
   -- EndSection - Markdown
 
+  -- Section - Nginx
+
+  --[[
+  -- nginx.vim - nginx syntax highlighting
+  -- https://github.com/chr4/nginx.vim
+  --]]
+  use({
+    'chr4/nginx.vim',
+    ft = { 'conf' },
+  })
+
+  -- EndSection - Nginx
+
   -- Section - Git
 
   --[[
