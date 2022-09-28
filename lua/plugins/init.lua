@@ -439,6 +439,17 @@ return packer.startup(function(use)
     end,
   })
 
+  --[[
+  -- alpha-nvim - A startup dashboard
+  -- https://github.com/goolord/alpha-nvim
+  --]]
+  use({
+    'goolord/alpha-nvim',
+    config = function()
+      require('plugins.alpha-nvim.config')
+    end,
+  })
+
   -- EndSection - General
 
   -- Section - Bash
