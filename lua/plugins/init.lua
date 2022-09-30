@@ -439,6 +439,13 @@ return packer.startup(function(use)
     end,
   })
 
+  use({
+    'anuvyklack/pretty-fold.nvim',
+    config = function()
+      require('plugins.pretty-fold.config')
+    end,
+  })
+
   -- EndSection - General
 
   -- Section - Bash
