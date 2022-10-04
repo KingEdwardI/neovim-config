@@ -54,7 +54,7 @@ packer.init({
 return packer.startup(function(use)
   use('wbthomason/packer.nvim')
 
-  -- Section - General
+  -- Section - General -------------------------------------------------------------------------------------
 
   --[[
   -- FixCursorHold.nvim - fix a performance bug with Cursorhold
@@ -446,9 +446,9 @@ return packer.startup(function(use)
     end,
   })
 
-  -- EndSection - General
+  -- EndSection - General -------------------------------------------------------------------------------------
 
-  -- Section - Bash
+  -- Section - Bash -------------------------------------------------------------------------------------
 
   --[[
   -- vim-shellcheck - bash script linter
@@ -463,9 +463,9 @@ return packer.startup(function(use)
     end,
   })
 
-  -- EndSection - Bash
+  -- EndSection - Bash -------------------------------------------------------------------------------------
 
-  -- Section - JS/TS
+  -- Section - JS/TS -------------------------------------------------------------------------------------
 
   --[[
   -- vim-fixjson - JSON autoformat + fixer
@@ -499,9 +499,9 @@ return packer.startup(function(use)
     ft = { 'json5' },
   })
 
-  -- EndSection - JS/TS
+  -- EndSection - JS/TS -------------------------------------------------------------------------------------
 
-  -- Section - Markdown
+  -- Section - Markdown -------------------------------------------------------------------------------------
 
   --[[
   -- markdown-preview - opens markdown in a browser window + live updating
@@ -533,9 +533,9 @@ return packer.startup(function(use)
   --]]
   use({ 'jxnblk/vim-mdx-js' })
 
-  -- EndSection - Markdown
+  -- EndSection - Markdown -------------------------------------------------------------------------------------
 
-  -- Section - Nginx
+  -- Section - Nginx -------------------------------------------------------------------------------------
 
   --[[
   -- nginx.vim - nginx syntax highlighting
@@ -546,9 +546,9 @@ return packer.startup(function(use)
     ft = { 'conf' },
   })
 
-  -- EndSection - Nginx
+  -- EndSection - Nginx -------------------------------------------------------------------------------------
 
-  -- Section - Git
+  -- Section - Git -------------------------------------------------------------------------------------
 
   --[[
   -- lazygit.nvim - LazyGit support
@@ -605,9 +605,9 @@ return packer.startup(function(use)
     end,
   })
 
-  -- EndSection - Git
+  -- EndSection - Git -------------------------------------------------------------------------------------
 
-  -- Section - Debugging
+  -- Section - Debugging -------------------------------------------------------------------------------------
 
   --[[
   -- vim-startuptime - get startup time stats
@@ -615,7 +615,8 @@ return packer.startup(function(use)
   --]]
   use('dstein64/vim-startuptime')
 
-  -- EndSection - Debugging
+  -- EndSection - Debugging -------------------------------------------------------------------------------------
+
   if PackerBootstrap then
     require('packer').sync()
   end
