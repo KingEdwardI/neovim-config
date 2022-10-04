@@ -66,3 +66,9 @@ vim.g.bufferline = {
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
 }
+
+vim.cmd([[
+highlight BufferCurrent guifg=#218a0c
+highlight BufferVisible guifg=#cadec5
+highlight BufferInactive guifg=#706f6f
+]])
