@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
   -- I'm not sure how this conditional is supposed to work, the tsserver
   -- config turns off document_formatting, so this never runs.
   -- keeping this around temporarily in case things get messed up by removing it.
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
   end
 end
