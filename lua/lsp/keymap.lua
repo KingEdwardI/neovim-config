@@ -6,7 +6,7 @@ local opts = { silent = true, noremap = true }
 return function(bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.cmd('command! LspDef lua vim.lsp.buf.definition()')
-  vim.cmd('command! LspFormatting lua vim.lsp.buf.formatting()')
+  vim.cmd('command! LspFormatting lua vim.lsp.buf.format()')
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspRefs lua vim.lsp.buf.references()')
   vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
