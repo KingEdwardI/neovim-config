@@ -198,7 +198,6 @@ return packer.startup(function(use)
   --]]
   use({
     'numToStr/Comment.nvim',
-    tag = 'v0.6',
     config = function()
       require('plugins.comment.config')
     end,
@@ -426,12 +425,12 @@ return packer.startup(function(use)
   -- indent-blankline.nvim - indentation guides
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   --]]
-  use({
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('plugins.indent-blankline.config')
-    end,
-  })
+  -- use({
+    -- 'lukas-reineke/indent-blankline.nvim',
+    -- config = function()
+      -- require('plugins.indent-blankline.config')
+    -- end,
+  -- })
 
   use({
     'anuvyklack/pretty-fold.nvim',
