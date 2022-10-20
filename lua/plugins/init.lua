@@ -340,12 +340,12 @@ return packer.startup(function(use)
   -- minimap.vim - minimap
   -- https://github.com/wfxr/minimap.vim
   --]]
-  use({
-    'wfxr/minimap.vim',
-    config = function()
-      require('plugins.minimap.config')
-    end,
-  })
+  -- use({
+    -- 'wfxr/minimap.vim',
+    -- config = function()
+      -- require('plugins.minimap.config')
+    -- end,
+  -- })
 
   --[[
   -- vim-choosewin - choose which window to jump to
@@ -425,12 +425,12 @@ return packer.startup(function(use)
   -- indent-blankline.nvim - indentation guides
   -- https://github.com/lukas-reineke/indent-blankline.nvim
   --]]
-  -- use({
-    -- 'lukas-reineke/indent-blankline.nvim',
-    -- config = function()
-      -- require('plugins.indent-blankline.config')
-    -- end,
-  -- })
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indent-blankline.config')
+    end,
+  })
 
   use({
     'anuvyklack/pretty-fold.nvim',
