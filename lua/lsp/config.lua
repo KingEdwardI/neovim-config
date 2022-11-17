@@ -1,4 +1,4 @@
-local set_key_mappings = require('lsp.keymap')
+local lsp_keymap = require('lsp.keymap')
 local config = {}
 
 -- Use an on_attach function to only map the following keys
@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
 
-  set_key_mappings(bufnr)
+  lsp_keymap.setup(bufnr)
 
   -- I'm not sure how this conditional is supposed to work, the tsserver
   -- config turns off document_formatting, so this never runs.

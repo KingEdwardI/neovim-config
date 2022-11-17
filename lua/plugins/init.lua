@@ -263,7 +263,19 @@ return packer.startup(function(use)
   -- vim-which-key - display available keybindings in a popup
   -- https://github.com/liuchengxu/vim-which-key
   --]
-  use('liuchengxu/vim-which-key')
+  -- use('liuchengxu/vim-which-key')
+
+  --[[
+  -- which-key.nvim - display available keybindings in a popup
+  -- https://github.com/folke/which-key.nvim
+  --]]
+  use({
+    'folke/which-key.nvim',
+    config =function ()
+      require('plugins.which-key.config')
+    end
+  })
+
 
   --[[
   -- nvim-web-devicons - neato icons

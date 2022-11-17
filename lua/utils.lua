@@ -23,7 +23,7 @@ utils.invariant_require = function(pluginName)
     if pluginName ~= 'packer' then
       vim.cmd([[
         echohl ErrorMsg
-        echo "Error occured while loading a plugin"
+        echo "Error occurred while loading a plugin"
         echohl None
         echo "Unable to load plugin: \"]] .. pluginName .. [[\"."
         echo "Are you sure it is installed? Check :PackerStatus and run :PackerInstall if needed."

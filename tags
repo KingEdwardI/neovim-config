@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/Users/edward.vetterdrake/workspace/dotfiles/nvim/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+Installation / Setup / Requirements	Readme.md	/^## Installation \/ Setup \/ Requirements$/;"	s	chapter:Neovenom
+Introduction	Readme.md	/^## Introduction$/;"	s	chapter:Neovenom
+Name Ideas	Readme.md	/^### Name Ideas$/;"	S	chapter:Neovenom
+Neovenom	Readme.md	/^# Neovenom$/;"	c
+Notes	Readme.md	/^### Notes$/;"	S	section:Neovenom""Installation / Setup / Requirements
+Package Manager	Readme.md	/^#### Package Manager$/;"	t	section:Neovenom""Installation / Setup / Requirements
+buf_map	lua/utils.lua	/^utils.buf_map = function(bufnr, mode, lhs, rhs, opts)$/;"	f	unknown:utils
+buf_set_option	lua/lsp/config.lua	/^  local function buf_set_option(...)$/;"	f
+config	lua/plugins/init.lua	/^    config = function()$/;"	f
+config	lua/plugins/init.lua	/^    config =function ()$/;"	f
+error_msg	plugin/packer_compiled.lua	/^local no_errors, error_msg = pcall(function()$/;"	f
+expand	lua/plugins/nvim-cmp/config.lua	/^      expand = function(args)$/;"	f
+format	lua/plugins/nvim-cmp/config.lua	/^      format = function(entry, vim_item)$/;"	f
+invariant_require	lua/utils.lua	/^utils.invariant_require = function(pluginName)$/;"	f	unknown:utils
+on_attach	lua/lsp/config.lua	/^local on_attach = function(client, bufnr)$/;"	f
+on_attach	lua/lsp/typescript-lsp.lua	/^    on_attach = function(client, bufnr)$/;"	f
+open_fn	lua/plugins/init.lua	/^    open_fn = function()$/;"	f
+save_profiles	plugin/packer_compiled.lua	/^local function save_profiles(threshold)$/;"	f
+set_keymap	lua/utils.lua	/^utils.set_keymap = function(mode, mapping, command, opts)$/;"	f	unknown:utils
+setup	lua/lsp/keymap.lua	/^lsp_keymap.setup = function(bufnr)$/;"	f	unknown:lsp_keymap
+time	plugin/packer_compiled.lua	/^  time = function(chunk, start) end$/;"	f
+time	plugin/packer_compiled.lua	/^  time = function(chunk, start)$/;"	f
+try_loadstring	plugin/packer_compiled.lua	/^local function try_loadstring(s, component, name)$/;"	f
