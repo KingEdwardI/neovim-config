@@ -62,17 +62,17 @@ return packer.startup(function(use)
   --]]
   use({
     'neovim/nvim-lspconfig',
-    requires = { 'jose-elias-alvarez/nvim-lsp-ts-utils', 'jose-elias-alvarez/null-ls.nvim' },
+    requires = { 'jose-elias-alvarez/typescript.nvim', 'jose-elias-alvarez/null-ls.nvim' },
     config = function()
       require('lsp.lsp')
     end,
   })
 
   --[[
-  -- nvim-lsp-ts-utils
-  -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
+  -- typescript - lsp config for typescript
+  -- https://github.com/jose-elias-alvarez/typescript
   --]]
-  use('jose-elias-alvarez/nvim-lsp-ts-utils')
+  use('jose-elias-alvarez/typescript.nvim')
 
   --[[
   -- null-ls
