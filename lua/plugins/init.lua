@@ -23,7 +23,7 @@ local packer = invariant_require('packer')
 if not packer then
   vim.cmd([[
     echohl ErrorMsg
-    echo "Error occured while initializing Packer"
+    echo "Error occurred while initializing Packer"
     echohl None
     echo "You might need to re-install Packer."
     echohl MoreMsg
