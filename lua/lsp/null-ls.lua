@@ -10,7 +10,7 @@ if null_ls then
 
   null_ls.setup({
     -- debug = true,
-    default_timeout = 5000,
+    default_timeout = 4000,
     sources = {
       -- Javascript / Typescript
       builtins.diagnostics.eslint_d, -- eslint or eslint_d
