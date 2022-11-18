@@ -7,7 +7,9 @@ local buf_map = utils.buf_map
 local lspconfig = invariant_require('lspconfig')
 local typescript = invariant_require('typescript')
 
-local remove_newline = function(str) return string.gsub(str, '[\n\r]', '') end
+local remove_newline = function(str)
+  return string.gsub(str, '[\n\r]', '')
+end
 
 local get_node_version = function()
   local check_node_version = io.popen('node --version')
