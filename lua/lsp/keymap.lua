@@ -50,6 +50,10 @@ lsp_keymap.wk_mappings = {
     cmd = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
     mode = 'n',
   },
+  lsr = {
+    cmd = "<Cmd>LspRestart<CR>",
+    mode = 'n',
+  }
 }
 -- special case
 lsp_keymap.wk_mappings['<Leader>'] = {
