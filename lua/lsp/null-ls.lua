@@ -16,7 +16,7 @@ if null_ls then
       builtins.diagnostics.eslint_d, -- eslint or eslint_d
       builtins.code_actions.eslint_d, -- eslint or eslint_d
       builtins.formatting.eslint_d, -- prettier, eslint, eslint_d, or prettierd
-      require("typescript.extensions.null-ls.code-actions"),
+      require('typescript.extensions.null-ls.code-actions'),
       null_ls.builtins.diagnostics.tsc,
 
       -- Lua

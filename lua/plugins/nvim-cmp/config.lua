@@ -32,10 +32,18 @@ if lspkind and cmp and luasnip and luasnip_snippets then
       end,
     },
     mapping = {
-      ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      ['<Down>'] = cmp.mapping.select_next_item({
+        behavior = cmp.SelectBehavior.Select,
+      }),
+      ['<Tab>'] = cmp.mapping.select_next_item({
+        behavior = cmp.SelectBehavior.Select,
+      }),
+      ['<Up>'] = cmp.mapping.select_prev_item({
+        behavior = cmp.SelectBehavior.Select,
+      }),
+      ['<S-Tab>'] = cmp.mapping.select_prev_item({
+        behavior = cmp.SelectBehavior.Select,
+      }),
       ['<C-t>'] = cmp.mapping.scroll_docs(-4),
       ['<C-n>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),

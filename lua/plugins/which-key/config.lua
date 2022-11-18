@@ -19,4 +19,3 @@ if which_key then
     },
   })
 end
-

@@ -45,9 +45,7 @@ end
 
 packer.init({
   display = {
-    open_fn = function()
-      return require('packer.util').float({ border = 'rounded' })
-    end,
+    open_fn = function() return require('packer.util').float({ border = 'rounded' }) end,
   },
 })
 
@@ -62,10 +60,11 @@ return packer.startup(function(use)
   --]]
   use({
     'neovim/nvim-lspconfig',
-    requires = { 'jose-elias-alvarez/typescript.nvim', 'jose-elias-alvarez/null-ls.nvim' },
-    config = function()
-      require('lsp.lsp')
-    end,
+    requires = {
+      'jose-elias-alvarez/typescript.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
+    },
+    config = function() require('lsp.lsp') end,
   })
 
   --[[
@@ -86,9 +85,7 @@ return packer.startup(function(use)
   --]]
   use({
     'folke/lsp-colors.nvim',
-    config = function()
-      require('plugins.lsp-colors.config')
-    end,
+    config = function() require('plugins.lsp-colors.config') end,
   })
 
   --[[
@@ -119,9 +116,7 @@ return packer.startup(function(use)
       'molleweide/LuaSnip-snippets.nvim',
       -- 'rafamadriz/friendly-snippets',
     },
-    config = function()
-      require('plugins.nvim-cmp.config')
-    end,
+    config = function() require('plugins.nvim-cmp.config') end,
   })
   -- use('rafamadriz/friendly-snippets')
   use('molleweide/LuaSnip-snippets.nvim')
@@ -142,9 +137,7 @@ return packer.startup(function(use)
   use({
     'SirVer/ultisnips',
     requires = 'honza/vim-snippets',
-    config = function()
-      require('plugins.ultisnips.config')
-    end,
+    config = function() require('plugins.ultisnips.config') end,
   })
 
   --[[
@@ -155,9 +148,7 @@ return packer.startup(function(use)
   use({
     'metalelf0/jellybeans-nvim',
     requires = 'rktjmp/lush.nvim',
-    config = function()
-      require('colorscheme')
-    end,
+    config = function() require('colorscheme') end,
   })
 
   --[[
@@ -198,9 +189,7 @@ return packer.startup(function(use)
   --]]
   use({
     'numToStr/Comment.nvim',
-    config = function()
-      require('plugins.comment.config')
-    end,
+    config = function() require('plugins.comment.config') end,
   })
 
   --[[
@@ -230,9 +219,7 @@ return packer.startup(function(use)
     requires = 'vijaymarupudi/nvim-fzf',
     dir = '~/.fzf',
     run = './install --all',
-    config = function()
-      require('plugins.fzf.config')
-    end,
+    config = function() require('plugins.fzf.config') end,
   })
   use({
     'ibhagwan/fzf-lua',
@@ -248,9 +235,7 @@ return packer.startup(function(use)
   --]]
   use({
     'windwp/nvim-autopairs',
-    config = function()
-      require('plugins.auto-pairs.config')
-    end,
+    config = function() require('plugins.auto-pairs.config') end,
   })
 
   --[[
@@ -271,11 +256,8 @@ return packer.startup(function(use)
   --]]
   use({
     'folke/which-key.nvim',
-    config =function ()
-      require('plugins.which-key.config')
-    end
+    config = function() require('plugins.which-key.config') end,
   })
-
 
   --[[
   -- nvim-web-devicons - neato icons
@@ -283,9 +265,7 @@ return packer.startup(function(use)
   --]]
   use({
     'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('plugins.nvim-devicons.config')
-    end,
+    config = function() require('plugins.nvim-devicons.config') end,
   })
 
   --[[
@@ -295,9 +275,7 @@ return packer.startup(function(use)
   use({
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('plugins.nvim-tree.config')
-    end,
+    config = function() require('plugins.nvim-tree.config') end,
   })
 
   --[[
@@ -307,9 +285,7 @@ return packer.startup(function(use)
   use({
     'hoob3rt/lualine.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('plugins.lualine.config')
-    end,
+    config = function() require('plugins.lualine.config') end,
   })
 
   --[[
@@ -319,9 +295,7 @@ return packer.startup(function(use)
   use({
     'romgrk/barbar.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('plugins.barbar.config')
-    end,
+    config = function() require('plugins.barbar.config') end,
   })
 
   --[[
@@ -331,9 +305,7 @@ return packer.startup(function(use)
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function()
-      require('plugins.treesitter.config')
-    end,
+    config = function() require('plugins.treesitter.config') end,
   })
 
   --[[
@@ -343,9 +315,7 @@ return packer.startup(function(use)
   --
   use({
     'ludovicchabant/vim-gutentags',
-    config = function()
-      require('plugins.vim-gutentags.config')
-    end,
+    config = function() require('plugins.vim-gutentags.config') end,
   })
 
   --[[
@@ -353,10 +323,10 @@ return packer.startup(function(use)
   -- https://github.com/wfxr/minimap.vim
   --]]
   -- use({
-    -- 'wfxr/minimap.vim',
-    -- config = function()
-      -- require('plugins.minimap.config')
-    -- end,
+  -- 'wfxr/minimap.vim',
+  -- config = function()
+  -- require('plugins.minimap.config')
+  -- end,
   -- })
 
   --[[
@@ -365,9 +335,7 @@ return packer.startup(function(use)
   --]]
   use({
     't9md/vim-choosewin',
-    config = function()
-      require('plugins.choosewin.config')
-    end,
+    config = function() require('plugins.choosewin.config') end,
   })
 
   --[[
@@ -376,9 +344,7 @@ return packer.startup(function(use)
   --]]
   use({
     'folke/trouble.nvim',
-    config = function()
-      require('plugins.trouble.config')
-    end,
+    config = function() require('plugins.trouble.config') end,
   })
 
   --[[
@@ -407,9 +373,7 @@ return packer.startup(function(use)
     'tami5/lspsaga.nvim',
     opt = true,
     requires = 'neovim/nvim-lspconfig',
-    config = function()
-      require('plugins.lspsaga.config')
-    end,
+    config = function() require('plugins.lspsaga.config') end,
     cmd = { 'Lspsaga' },
     ft = {
       'javascript',
@@ -428,9 +392,7 @@ return packer.startup(function(use)
   --]]
   use({
     'kosayoda/nvim-lightbulb',
-    config = function()
-      require('plugins.nvim-lightbulb.config')
-    end,
+    config = function() require('plugins.nvim-lightbulb.config') end,
   })
 
   --[[
@@ -439,16 +401,12 @@ return packer.startup(function(use)
   --]]
   use({
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('plugins.indent-blankline.config')
-    end,
+    config = function() require('plugins.indent-blankline.config') end,
   })
 
   use({
     'anuvyklack/pretty-fold.nvim',
-    config = function()
-      require('plugins.pretty-fold.config')
-    end,
+    config = function() require('plugins.pretty-fold.config') end,
   })
 
   -- EndSection - General -------------------------------------------------------------------------------------
@@ -463,9 +421,7 @@ return packer.startup(function(use)
     'itspriddle/vim-shellcheck',
     opt = true,
     ft = { 'sh', 'bash', 'zsh' },
-    config = function()
-      require('plugins.shellcheck.config')
-    end,
+    config = function() require('plugins.shellcheck.config') end,
   })
 
   -- EndSection - Bash -------------------------------------------------------------------------------------
@@ -480,9 +436,7 @@ return packer.startup(function(use)
     'rhysd/vim-fixjson',
     opt = true,
     ft = { 'json', 'json5' },
-    config = function()
-      require('plugins.fix-json.config')
-    end,
+    config = function() require('plugins.fix-json.config') end,
   })
 
   --[[
@@ -517,9 +471,7 @@ return packer.startup(function(use)
     opt = true,
     ft = { 'markdown' },
     run = 'cd app && yarn install',
-    config = function()
-      require('plugins.markdown-preview.config')
-    end,
+    config = function() require('plugins.markdown-preview.config') end,
   })
 
   --[[
@@ -561,9 +513,7 @@ return packer.startup(function(use)
   --]]
   use({
     'kdheepak/lazygit.nvim',
-    config = function()
-      require('plugins.lazygit.config')
-    end,
+    config = function() require('plugins.lazygit.config') end,
   })
 
   --[[
@@ -580,9 +530,7 @@ return packer.startup(function(use)
     'f-person/git-blame.nvim',
     opt = true,
     cmd = { 'GitBlameToggle' },
-    config = function()
-      require('plugins.git-blame.config')
-    end,
+    config = function() require('plugins.git-blame.config') end,
   })
 
   --[[
@@ -594,9 +542,7 @@ return packer.startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     opt = true,
     cmd = { 'DiffviewOpen', 'DiffviewClose' },
-    config = function()
-      require('plugins.diff-view.config')
-    end,
+    config = function() require('plugins.diff-view.config') end,
   })
 
   --[[
@@ -605,9 +551,7 @@ return packer.startup(function(use)
   --]]
   use({
     'akinsho/git-conflict.nvim',
-    config = function()
-      require('git-conflict').setup()
-    end,
+    config = function() require('git-conflict').setup() end,
   })
 
   -- EndSection - Git -------------------------------------------------------------------------------------
@@ -622,7 +566,5 @@ return packer.startup(function(use)
 
   -- EndSection - Debugging -------------------------------------------------------------------------------------
 
-  if PackerBootstrap then
-    require('packer').sync()
-  end
+  if PackerBootstrap then require('packer').sync() end
 end)

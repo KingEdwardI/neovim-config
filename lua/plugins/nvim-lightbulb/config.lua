@@ -3,7 +3,9 @@ local invariant_require = utils.invariant_require
 local lightbulb = invariant_require('nvim-lightbulb')
 
 if lightbulb then
-  vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+  vim.cmd(
+    [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+  )
 
   lightbulb.update_lightbulb({
     -- LSP client names to ignore

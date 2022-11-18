@@ -51,9 +51,9 @@ lsp_keymap.wk_mappings = {
     mode = 'n',
   },
   lsr = {
-    cmd = "<Cmd>LspRestart<CR>",
+    cmd = '<Cmd>LspRestart<CR>',
     mode = 'n',
-  }
+  },
 }
 -- special case
 lsp_keymap.wk_mappings['<Leader>'] = {
@@ -63,7 +63,9 @@ lsp_keymap.wk_mappings['<Leader>'] = {
 
 lsp_keymap.setup = function(bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.cmd('command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 2000 })')
+  vim.cmd(
+    'command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 2000 })'
+  )
   vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
   vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
   vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
