@@ -30,6 +30,7 @@ if indent_blankline then
       'IndentBlanklineIndent5',
       'IndentBlanklineIndent6',
     },
+    filetype_exclude = { 'dashboard' },
     -- In case I want to highlight the background
     -- char = '',
     -- char_highlight_list = {
