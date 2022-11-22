@@ -230,7 +230,6 @@ local buttons = {
   },
 }
 
--- TODO: Fix the centering of the files so they are justified
 local recent_files = {
   type = 'group',
   val = {
