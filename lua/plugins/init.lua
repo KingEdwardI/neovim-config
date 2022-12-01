@@ -377,13 +377,14 @@ return packer.startup(function(use)
 
   --[[
   -- lspsaga - floating window for various things
-  -- https://github.com/tami5/lspsaga.nvim
+  -- https://github.com/glepnir/lspsaga.nvim
   --]]
   use({
-    'tami5/lspsaga.nvim',
+    'glepnir/lspsaga.nvim',
     opt = true,
     requires = 'neovim/nvim-lspconfig',
     config = function() require('plugins.lspsaga.config') end,
+    branch = 'main',
     cmd = { 'Lspsaga' },
     ft = {
       'javascript',
@@ -394,15 +395,6 @@ return packer.startup(function(use)
       'typescript.tsx',
       'lua',
     },
-  })
-
-  --[[
-  -- nvim-code-action-lightbulb - gutter notification for code actions
-  -- https://github.com/kosayoda/nvim-lightbulb
-  --]]
-  use({
-    'kosayoda/nvim-lightbulb',
-    config = function() require('plugins.nvim-lightbulb.config') end,
   })
 
   --[[

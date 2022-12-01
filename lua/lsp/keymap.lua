@@ -10,12 +10,20 @@ local opts = { silent = true, noremap = true }
 -- This will get rid of the need for my keymap.lua files, and the keymappings.lua,
 -- reducing boilerplate and generally simplifying keymapping.
 lsp_keymap.wk_mappings = {
-  rn = {
-    cmd = '<Cmd>LspRename<CR>',
-    mode = 'n',
-  },
   gy = {
     cmd = '<Cmd>LspTypeDef<CR>',
+    mode = 'n',
+  },
+  lf = {
+    cmd = '<Cmd>LspFormatting<CR>',
+    mode = 'n',
+  },
+  lsr = {
+    cmd = '<Cmd>LspRestart<CR>',
+    mode = 'n',
+  },
+  rn = {
+    cmd = '<Cmd>Lspsaga rename<CR>',
     mode = 'n',
   },
   n = {
@@ -26,32 +34,24 @@ lsp_keymap.wk_mappings = {
     cmd = '<Cmd>Lspsaga diagnostic_jump_prev<CR>',
     mode = 'n',
   },
-  lf = {
-    cmd = '<Cmd>LspFormatting<CR>',
-    mode = 'n',
-  },
-  h = {
+  hf = {
     cmd = '<Cmd>Lspsaga lsp_finder<CR>',
     mode = 'n',
   },
-  d = {
+  hd = {
     cmd = '<Cmd>Lspsaga hover_doc<CR>',
     mode = 'n',
   },
-  a = {
+  hl = {
     cmd = '<Cmd>Lspsaga show_line_diagnostics<CR>',
     mode = 'n',
   },
-  w = {
-    cmd = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+  hc = {
+    cmd = '<Cmd>Lspsaga show_cursor_diagnostics<CR>',
     mode = 'n',
   },
-  v = {
-    cmd = "<Cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-    mode = 'n',
-  },
-  lsr = {
-    cmd = '<Cmd>LspRestart<CR>',
+  hp = {
+    cmd = '<Cmd>Lspsaga peek_definition<CR>',
     mode = 'n',
   },
 }
@@ -73,6 +73,8 @@ lsp_keymap.setup = function(bufnr)
   for key, value in pairs(lsp_keymap.wk_mappings) do
     buf_map(bufnr, value.mode, '<Leader>' .. key, value.cmd, opts)
   end
+
+  buf_map(bufnr, 'n', '<C-c>t', '<Cmd>Lspsaga close_floaterm<CR>')
 end
 
 return lsp_keymap
