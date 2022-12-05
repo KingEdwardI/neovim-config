@@ -26,5 +26,6 @@ if saga then
       cache_code_action = false,
     },
     border_style = 'rounded',
+    finder_request_timeout = 7500,
   })
-end    
+end
