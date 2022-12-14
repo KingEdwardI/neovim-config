@@ -35,4 +35,12 @@ utils.invariant_require = function(pluginName)
   return plugin
 end
 
+utils.merge_table = function(table1, table2)
+  for _, v in ipairs(table2) do
+    table.insert(table1, v)
+  end
+
+  return table1
+end
+
 return utils

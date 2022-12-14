@@ -1,20 +1,30 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
-set_keymap('n', '<Leader>pu', '<Cmd>PackerUpdate<CR>')
-set_keymap(
-  'n',
-  '<Leader>pc',
-  '<Cmd>PackerCompile<CR> <Cmd>echo "finished compiling"<CR>'
-)
-set_keymap(
-  'n',
-  '<Leader>pi',
-  '<Cmd>PackerInstall<CR> <Cmd>echo "finished installing"<CR>'
-)
-set_keymap(
-  'n',
-  '<Leader>pC',
-  '<Cmd>PackerClean<CR> <Cmd>echo "finished cleaning"<CR>'
-)
-set_keymap('n', '<Leader>ps', '<Cmd>PackerSync<CR>')
+local wk_mappings = {
+  prefix = '<Leader>',
+  p = {
+    name = 'Packer actions',
+    u = {
+      '<Cmd>PackerUpdate<CR>',
+      'Update packages',
+    },
+    c = {
+      '<Cmd>PackerCompile<CR> <Cmd>echo "finished compiling"<CR>',
+      'Compile packages',
+    },
+    i = {
+      '<Cmd>PackerInstall<CR> <Cmd>echo "finished installing"<CR>',
+      'Install packages',
+    },
+    C = {
+      '<Cmd>PackerClean<CR> <Cmd>echo "finished cleaning"<CR>',
+      'Clean packages',
+    },
+    s = {
+      '<Cmd>PackerSync<CR>',
+      'Sync packages',
+    },
+  },
+}
+
+wk.register(wk_mappings)

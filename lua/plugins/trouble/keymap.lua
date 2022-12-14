@@ -1,33 +1,42 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
-set_keymap(
-  'n',
-  '<Leader>xx',
-  '<Cmd>TroubleToggle<CR>',
-  { silent = true, noremap = true }
-)
-set_keymap(
-  'n',
-  '<Leader>xw',
-  '<Cmd>Trouble workspace_diagnostics<CR>',
-  { silent = true, noremap = true }
-)
-set_keymap(
-  'n',
-  '<Leader>xd',
-  '<Cmd>Trouble lsp_document_diagnostics<CR>',
-  { silent = true, noremap = true }
-)
-set_keymap(
-  'n',
-  '<Leader>xl',
-  '<Cmd>Trouble loclist<CR>',
-  { silent = true, noremap = true }
-)
-set_keymap(
-  'n',
-  '<Leader>xf',
-  '<Cmd>Trouble quickfix<CR>',
-  { silent = true, noremap = true }
-)
+local opts = { silent = true, noremap = true }
+
+local wk_mappings = {
+  prefix = '<Leader>',
+  x = {
+    name = 'Trouble diagnostic window',
+    x = {
+      '<Cmd>TroubleToggle<CR>',
+      'Toggle Trouble menu',
+      opts = opts,
+    },
+    w = {
+      '<Cmd>Trouble workspace_diagnostics<CR>',
+      'Open workspace diagnostics',
+      opts = opts,
+    },
+    d = {
+      '<Cmd>Trouble lsp_document_diagnostics<CR>',
+      'Open document diagnostics',
+      opts = opts,
+    },
+    l = {
+      '<Cmd>Trouble loclist<CR>',
+      'Todo: figure out what this is',
+      opts = opts,
+    },
+    f = {
+      '<Cmd>Trouble quickfix<CR>',
+      'Quickfix problems',
+      opts = opts,
+    },
+    r = {
+      '<Cmd>TroubleRefresh<CR>',
+      'Refresh diagnostic window',
+      opts = opts,
+    },
+  },
+}
+
+wk.register(wk_mappings)

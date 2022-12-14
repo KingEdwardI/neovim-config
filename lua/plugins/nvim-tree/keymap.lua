@@ -1,6 +1,16 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
--- NvimTreeOpen, NvimTreeClose and NvimTreeFocus are also available if you need them
-set_keymap('n', '<Leader>tt', '<Cmd>NvimTreeToggle<CR>')
-set_keymap('n', '<Leader>tR', '<Cmd>NvimTreeRefresh<CR>')
+wk.register({
+  prefix = '<Leader>',
+  t = {
+    name = 'File tree actions',
+    t = {
+      '<Cmd>NvimTreeToggle<CR>',
+      'Toggle tree open',
+    },
+    R = {
+      '<Cmd>NvimTreeRefresh<CR>',
+      'Refresh tree content',
+    },
+  },
+})

@@ -1,4 +1,12 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
-set_keymap('', '<Leader>md', '<Cmd>MarkdownPreviewToggle<CR>')
+wk.register({
+  prefix = '<Leader>',
+  m = {
+    name = 'Markdown actions',
+    d = {
+      '<Cmd>MarkdownPreviewToggle<CR>',
+      'Open markdown previewer',
+    },
+  },
+})

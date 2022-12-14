@@ -1,5 +1,18 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
-set_keymap('n', '<Leader>dv', '<Cmd>DiffviewOpen<CR>')
-set_keymap('n', '<Leader>dV', '<Cmd>DiffviewClose<CR>')
+local wk_mappings = {
+  prefix = '<Leader>',
+  d = {
+    name = 'Git diff viewer',
+    v = {
+      '<Cmd>DiffviewOpen<CR>',
+      'Open diff view',
+    },
+    V = {
+      '<Cmd>DiffviewClose<CR>',
+      'Close diff view',
+    },
+  },
+}
+
+wk.register(wk_mappings)

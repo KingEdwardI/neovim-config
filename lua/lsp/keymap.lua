@@ -1,80 +1,107 @@
-local utils = require('utils')
+-- Not using invariant_require here for custom error message
+-- Todo: update invariant_require to allow overriding the message
+local wk_ok, wk = pcall(require, 'which-key')
+
+local make_mappings = function(bufnr)
+  return {
+    g = {
+      name = 'Goto',
+      d = {
+        '<Cmd>LspTypeDef<CR>',
+        'Type Definition',
+        buffer = bufnr,
+      },
+      n = {
+        '<Cmd>Lspsaga diagnostic_jump_next<CR>',
+        'Next issue',
+        buffer = bufnr,
+      },
+      N = {
+        '<Cmd>Lspsaga diagnostic_jump_prev<CR>',
+        'Previous issue',
+        buffer = bufnr,
+      },
+    },
+    h = {
+      name = 'Hover Menu',
+      f = {
+        '<Cmd>Lspsaga lsp_finder<CR>',
+        'Find all',
+        buffer = bufnr,
+      },
+      d = {
+        '<Cmd>Lspsaga hover_doc<CR>',
+        'Show docs',
+        buffer = bufnr,
+      },
+      l = {
+        '<Cmd>Lspsaga show_line_diagnostics<CR>',
+        'Show line diagnostics',
+        buffer = bufnr,
+      },
+      c = {
+        '<Cmd>Lspsaga show_cursor_diagnostics<CR>',
+        'Show diagnostic under cursor',
+        buffer = bufnr,
+      },
+      p = {
+        '<Cmd>Lspsaga peek_definition<CR>',
+        'Peek at definition',
+        buffer = bufnr,
+      },
+    },
+    l = {
+      name = 'Lint',
+      f = {
+        '<Cmd>LspFormatting<CR>',
+        'Fix issues',
+        buffer = bufnr,
+      },
+    },
+    L = {
+      name = 'LSP',
+      r = {
+        '<Cmd>LspRestart<CR>',
+        'Restart LSP server',
+        buffer = bufnr,
+      },
+    },
+    r = {
+      name = 'Rename',
+      n = {
+        '<Cmd>Lspsaga rename<CR>',
+        'Rename variable under cursor',
+        buffer = bufnr,
+      },
+    },
+    [','] = {
+      '<Cmd>Lspsaga code_action<CR>',
+      'Code action menu',
+      buffer = bufnr,
+    },
+  }
+end
 
 local lsp_keymap = {}
 
-local buf_map = utils.buf_map
-local opts = { silent = true, noremap = true }
-
--- Todo: This works and I like it, but it would be better to turn this inside out
--- and pull in which-key, use which_key.register in each config file.
--- This will get rid of the need for my keymap.lua files, and the keymappings.lua,
--- reducing boilerplate and generally simplifying keymapping.
-lsp_keymap.wk_mappings = {
-  gy = {
-    cmd = '<Cmd>LspTypeDef<CR>',
-    mode = 'n',
-  },
-  lf = {
-    cmd = '<Cmd>LspFormatting<CR>',
-    mode = 'n',
-  },
-  lsr = {
-    cmd = '<Cmd>LspRestart<CR>',
-    mode = 'n',
-  },
-  rn = {
-    cmd = '<Cmd>Lspsaga rename<CR>',
-    mode = 'n',
-  },
-  n = {
-    cmd = '<Cmd>Lspsaga diagnostic_jump_next<CR>',
-    mode = 'n',
-  },
-  N = {
-    cmd = '<Cmd>Lspsaga diagnostic_jump_prev<CR>',
-    mode = 'n',
-  },
-  hf = {
-    cmd = '<Cmd>Lspsaga lsp_finder<CR>',
-    mode = 'n',
-  },
-  hd = {
-    cmd = '<Cmd>Lspsaga hover_doc<CR>',
-    mode = 'n',
-  },
-  hl = {
-    cmd = '<Cmd>Lspsaga show_line_diagnostics<CR>',
-    mode = 'n',
-  },
-  hc = {
-    cmd = '<Cmd>Lspsaga show_cursor_diagnostics<CR>',
-    mode = 'n',
-  },
-  hp = {
-    cmd = '<Cmd>Lspsaga peek_definition<CR>',
-    mode = 'n',
-  },
-}
--- special case
-lsp_keymap.wk_mappings['<Leader>'] = {
-  cmd = '<Cmd>Lspsaga code_action<CR>',
-  mode = 'n',
-}
-
 lsp_keymap.setup = function(bufnr)
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.cmd(
-    'command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 2000 })'
-  )
-  vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
-  vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
-  vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
+  if wk_ok then
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.cmd(
+      'command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 2000 })'
+    )
+    vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
+    vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
+    vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
 
-  for key, value in pairs(lsp_keymap.wk_mappings) do
-    buf_map(bufnr, value.mode, '<Leader>' .. key, value.cmd, opts)
+    wk.register(make_mappings(bufnr), { prefix = '<Leader>' })
+  else
+    vim.cmd([[
+        echohl ErrorMsg
+        echo "Error occurred while loading lsp keymap, is which-key installed?"
+        echohl None
+    ]])
   end
-
-  buf_map(bufnr, 'n', '<C-c>t', '<Cmd>Lspsaga close_floaterm<CR>')
 end
 
 return lsp_keymap

@@ -1,6 +1,18 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
 -- Need to override the default mapping manually so that commenting works right and doesn't accidentally
 -- trigger `c` after commenting.
-set_keymap('v', ',cc', '<PLug>(comment_toggle_linewise_visual)')
+wk.register({
+  prefix = '<Leader>',
+  c = {
+    name = 'Commenting actions',
+    c = {
+      '<PLug>(comment_toggle_linewise_visual)',
+      'Toggle line comment',
+      mode = 'v',
+    },
+    b = 'Toggle block comment',
+    t = 'Add comment above current line',
+    n = 'Add comment below current line',
+  },
+})
