@@ -27,8 +27,8 @@ set_keymap('', '_', '^', { noremap = true })
 set_keymap('n', 'k', 'J', { noremap = true })
 
 -- window navigation
-set_keymap('n', 'gb', ':bnext<CR>')
-set_keymap('n', 'gB', ':bprevious<CR>')
+set_keymap('n', 'gt', '<Cmd>bnext<CR>')
+set_keymap('n', 'gT', '<Cmd>bprevious<CR>')
 
 require('plugins.barbar.keymap')
 require('plugins.choosewin.keymap')

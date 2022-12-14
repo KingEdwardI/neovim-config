@@ -17,5 +17,10 @@ if which_key then
       scroll_down = '<Down>',
       scroll_up = '<Up>',
     },
+    icons = {
+      breadcrumb = '» ',
+      separator = '➜ ',
+      group = '+ ',
+    },
   })
 end

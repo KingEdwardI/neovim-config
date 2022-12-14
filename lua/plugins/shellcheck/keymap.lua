@@ -1,4 +1,12 @@
-local utils = require('utils')
-local set_keymap = utils.set_keymap
+local wk = require('which-key')
 
-set_keymap('n', '<Leader>shc', '<Cmd>ShellCheck!<CR>')
+wk.register({
+  prefix = '<Leader>',
+  l = {
+    name = 'Lint',
+    s = {
+      '<Cmd>ShellCheck!<CR>',
+      'Run shellcheck',
+    },
+  },
+})
