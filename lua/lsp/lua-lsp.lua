@@ -5,9 +5,9 @@ local invariant_require = utils.invariant_require
 local lsp = invariant_require('lspconfig')
 
 if lsp then
-  USER = vim.fn.expand('$USER')
+  HOME = vim.fn.expand('$HOME')
 
-  local sumneko_root_path = '/Users/' .. USER .. '/tools/lua-language-server'
+  local sumneko_root_path = HOME .. '/tools/lua-language-server'
   local sumneko_binary = sumneko_root_path .. '/bin/macOS/lua-language-server'
 
   lsp.sumneko_lua.setup({
