@@ -78,6 +78,12 @@ return packer.startup(function(use)
   use('jose-elias-alvarez/typescript.nvim')
 
   --[[
+  -- rust-tools - lsp config for rust
+  -- https://github.com/simrat39/rust-tools.nvim
+  --]]
+  use('simrat39/rust-tools.nvim')
+
+  --[[
   -- null-ls
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   --]]
