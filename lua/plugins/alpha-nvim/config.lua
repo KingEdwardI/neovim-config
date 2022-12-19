@@ -220,7 +220,7 @@ local buttons = {
   val = {
     dashboard.button('f', '  Find File', "<Cmd>lua require('fzf-lua').git_files()<CR>"),
     dashboard.button('g', '  Live Grep', "<Cmd>lua require('fzf-lua').live_grep()<CR>"),
-    dashboard.button('t', '¤  Nvim Tree', '<Cmd>NvimTreeToggle<CR>'),
+    dashboard.button('t', '¤  Tree', '<Cmd>CHADopen<CR>'),
     dashboard.button('u', '  Update plugins', '<Cmd>PackerSync<CR><Cmd>PackerCompile<CR>'),
     dashboard.button('q', '✖  Quit NVIM', '<Cmd>qa<CR>'),
   },

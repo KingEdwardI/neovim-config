@@ -307,15 +307,16 @@ return packer.startup(function(use)
   })
 
   --[[
-  -- nvim-tree - file explorer tree
-  -- https://github.com/kyazdani42/nvim-tree.lua
+  -- CHADTree - file explorer tree
+  -- https://github.com/ms-jpq/chadtree
   --]]
   use({
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
+    'ms-jpq/chadtree',
+    branch = 'chad',
+    run = 'python3 -m chadtree deps',
     config = function()
-      require('plugins.nvim-tree.config')
-    end,
+      require('plugins.chadtree.config')
+    end
   })
 
   --[[
