@@ -9,7 +9,9 @@ if pretty_fold then
     sections = {
       left = {
         '+',
-        function() return string.rep('-', vim.v.foldlevel) end,
+        function()
+          return string.rep('-', vim.v.foldlevel)
+        end,
         ' ',
         'number_of_folded_lines',
         ':',

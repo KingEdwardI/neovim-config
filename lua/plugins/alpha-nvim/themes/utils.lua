@@ -15,16 +15,23 @@ local function button(sc, txt, keybind, keybind_opts)
     cursor = 1,
     width = 50,
     align_shortcut = 'left',
-    hl_shortcut = { { 'Operator', 0, 1 }, { 'Number', 1, #sc + 1 }, { 'Operator', #sc + 1, #sc + 2 } },
+    hl_shortcut = {
+      { 'Operator', 0, 1 },
+      { 'Number', 1, #sc + 1 },
+      { 'Operator', #sc + 1, #sc + 2 },
+    },
     shrink_margin = false,
   }
   if keybind then
-    keybind_opts = if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
-    opts.keymap = { 'n', sc_, keybind, { noremap = false, silent = true, nowait = true } }
+    keybind_opts =
+      if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
+    opts.keymap =
+      { 'n', sc_, keybind, { noremap = false, silent = true, nowait = true } }
   end
 
   local function on_press()
-    local key = vim.api.nvim_replace_termcodes(keybind .. '<Ignore>', true, false, true)
+    local key =
+      vim.api.nvim_replace_termcodes(keybind .. '<Ignore>', true, false, true)
     vim.api.nvim_feedkeys(key, 't', false)
   end
 
@@ -76,7 +83,8 @@ local function file_button(fn, sc, short_fn, autocd)
     ico_txt = ''
   end
   local cd_cmd = (autocd and ' | cd %:p:h' or '')
-  local file_button_el = button(sc, ico_txt .. short_fn, '<cmd>e ' .. fn .. cd_cmd .. ' <CR>')
+  local file_button_el =
+    button(sc, ico_txt .. short_fn, '<cmd>e ' .. fn .. cd_cmd .. ' <CR>')
   local fn_start = short_fn:match('.*[/\\]')
   if fn_start ~= nil then
     table.insert(fb_hl, { 'Comment', #ico_txt - 2, #fn_start + #ico_txt - 2 })
@@ -89,7 +97,8 @@ local default_mru_ignore = { 'gitcommit' }
 
 local mru_opts = {
   ignore = function(path, ext)
-    return (string.find(path, 'COMMIT_EDITMSG')) or (vim.tbl_contains(default_mru_ignore, ext))
+    return (string.find(path, 'COMMIT_EDITMSG'))
+      or (vim.tbl_contains(default_mru_ignore, ext))
   end,
   autocd = false,
 }
@@ -122,7 +131,8 @@ local function mru(start, cwd, items_number, opts)
     else
       short_fn = fnamemodify(fn, ':~')
     end
-    local file_button_el = file_button(fn, tostring(i + start - 1), short_fn, opts.autocd)
+    local file_button_el =
+      file_button(fn, tostring(i + start - 1), short_fn, opts.autocd)
     tbl[i] = file_button_el
   end
   return {

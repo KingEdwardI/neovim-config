@@ -21,7 +21,7 @@ vim.api.nvim_set_var('chadtree_settings', {
     h_split = { '<Leader>s' },
     open_sys = { '<Leader>o' },
     collapse = { '<S-Tab>', '<Backspace>' },
-    jump_to_current = {',tJ'},
+    jump_to_current = { ',tJ' },
     stat = { '<Leader>ls' },
     copy = { 'c' },
     toggle_hidden = { '<Nop>' },

@@ -316,7 +316,7 @@ return packer.startup(function(use)
     run = 'python3 -m chadtree deps',
     config = function()
       require('plugins.chadtree.config')
-    end
+    end,
   })
 
   --[[
