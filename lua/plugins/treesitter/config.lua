@@ -23,7 +23,10 @@ if ts_configs then
     },
     autotag = { enable = true },
     rainbow = { enable = true },
-    context_commentstring = { enable = true },
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
+    },
     -- refactor = {highlight_definitions = {enable = true}}
   })
 end

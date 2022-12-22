@@ -1,8 +1,10 @@
 local utils = require('utils')
 local invariant_require = utils.invariant_require
 local comment = invariant_require('Comment')
+local ts_context_commentstring =
+  invariant_require('ts_context_commentstring.integrations.comment_nvim')
 
-if comment then
+if comment and ts_context_commentstring then
   comment.setup({
     -- Add a space b/w comment and the line
     padding = true,
@@ -57,7 +59,7 @@ if comment then
       extended = false,
     },
     -- Pre-hook, called before commenting the line
-    pre_hook = nil,
+    pre_hook = ts_context_commentstring.create_pre_hook(),
 
     -- Post-hook, called after commenting is done
     post_hook = nil,

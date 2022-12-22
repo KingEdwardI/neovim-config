@@ -78,6 +78,15 @@ return packer.startup(function(use)
   use('jose-elias-alvarez/typescript.nvim')
 
   --[[
+  -- nvim-ts-context-commentstring - jsx/tsx comment syntax
+  -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+  --]]
+  use({
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    requires = { 'nvim-treesitter' },
+  })
+
+  --[[
   -- rust-tools - lsp config for rust
   -- https://github.com/simrat39/rust-tools.nvim
   --]]
@@ -115,47 +124,28 @@ return packer.startup(function(use)
   use('nvim-lua/plenary.nvim')
 
   --[[
-  -- nvim-compe - Autocompletion plugin for nvim
-  -- https://github.com/hrsh7th/nvim-compe
+  -- coq-nvim - Fast as FUCK autocompletion
+  -- https://github.com/ms-jpq/coq_nvim
   --]]
   use({
-    'hrsh7th/nvim-cmp',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/vim-vsnip',
-      'hrsh7th/vim-vsnip-integ',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'molleweide/LuaSnip-snippets.nvim',
-      -- 'rafamadriz/friendly-snippets',
-    },
+    'ms-jpq/coq_nvim',
+    branch = 'coq',
+    run = ':COQdeps',
     config = function()
-      require('plugins.nvim-cmp.config')
+      require('plugins.coq_nvim.config')
     end,
   })
-  -- use('rafamadriz/friendly-snippets')
-  use('molleweide/LuaSnip-snippets.nvim')
-  use('L3MON4D3/LuaSnip')
-  use('saadparwaiz1/cmp_luasnip')
 
-  -- Might come back to this later.
-  -- use({
-  --   'tzachar/cmp-tabnine',
-  --   requires = 'hrsh7th/nvim-cmp',
-  --   run = './install.sh',
-  -- })
-
-  --[[
-  -- ultisnips - snippet engine
-  -- https://github.com/SirVer/ultisnips
-  --]]
   use({
-    'SirVer/ultisnips',
-    requires = 'honza/vim-snippets',
-    config = function()
-      require('plugins.ultisnips.config')
-    end,
+    'ms-jpq/coq.artifacts',
+    branch = 'artifacts',
+    requires = 'ms-jpq/coq_nvim',
+  })
+
+  use({
+    'ms-jpq/coq.thirdparty',
+    branch = '3p',
+    requires = 'ms-jpq/coq_nvim',
   })
 
   --[[
@@ -268,14 +258,18 @@ return packer.startup(function(use)
   -- vim_current_word - highlight matches to the word under the cursor
   -- https://github.com/dominikduda/vim_current_word
   --]]
-  use('dominikduda/vim_current_word')
+  use({
+    'dominikduda/vim_current_word',
+    config = function()
+      require('plugins.vim-current-word.config')
+    end,
+  })
 
   --[
   -- vim-which-key - display available keybindings in a popup
   -- https://github.com/liuchengxu/vim-which-key
   --]
   -- use('liuchengxu/vim-which-key')
-
   use({
     'folke/which-key.nvim',
     config = function()
@@ -295,6 +289,7 @@ return packer.startup(function(use)
       require('plugins.alpha-nvim.config')
     end,
   })
+
   --[[
   -- nvim-web-devicons - neato icons
   -- https://github.com/kyazdani42/nvim-web-devicons
@@ -316,7 +311,7 @@ return packer.startup(function(use)
     run = 'python3 -m chadtree deps',
     config = function()
       require('plugins.chadtree.config')
-    end
+    end,
   })
 
   --[[
@@ -354,6 +349,17 @@ return packer.startup(function(use)
       require('plugins.treesitter.config')
     end,
   })
+
+  --[[
+  -- https://github.com/nvim-treesitter/playground
+  -- nvim-treesitter-playground - An easy way to get highlight groups
+  -- Going to leave this disabled for now, use it for debugging color when I get to it.
+  ]]
+  -- use({
+  --   'nvim-treesitter/playground',
+  --   opt = true,
+  --   cmd = 'TSHighlightCapturesUnderCursor',
+  -- })
 
   --[[
   -- vim-gutentags - generate tags for a project for go to definition

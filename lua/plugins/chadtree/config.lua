@@ -21,7 +21,7 @@ vim.api.nvim_set_var('chadtree_settings', {
     h_split = { '<Leader>s' },
     open_sys = { '<Leader>o' },
     collapse = { '<S-Tab>', '<Backspace>' },
-    jump_to_current = {',tJ'},
+    jump_to_current = { ',tJ' },
     stat = { '<Leader>ls' },
     copy = { 'c' },
     toggle_hidden = { '<Nop>' },
@@ -29,7 +29,11 @@ vim.api.nvim_set_var('chadtree_settings', {
     trash = { '<Nop>' },
   },
   theme = {
-    text_colour_set = 'trapdoor',
+    -- to get correct coloring, LS_COLORS need to be set in the env.
+    -- I'm using https://github.com/sharkdp/vivid to generate the colors.
+    -- (specifically dracula theme)
+    -- Todo: Some kind of check for if all requirements are available.
+    text_colour_set = 'env',
   },
   options = {
     follow = false,

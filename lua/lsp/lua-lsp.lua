@@ -2,6 +2,7 @@ local utils = require('utils')
 local config = require('lsp.config')
 local invariant_require = utils.invariant_require
 
+local coq = require('plugins.coq_nvim.config')
 local lsp = invariant_require('lspconfig')
 
 if lsp then
@@ -10,7 +11,7 @@ if lsp then
   local sumneko_root_path = HOME .. '/tools/lua-language-server'
   local sumneko_binary = sumneko_root_path .. '/bin/macOS/lua-language-server'
 
-  lsp.sumneko_lua.setup({
+  lsp.sumneko_lua.setup(coq.lsp_ensure_capabilities({
     cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
     on_attach = config.on_attach,
     settings = {
@@ -34,5 +35,5 @@ if lsp then
         },
       },
     },
-  })
+  }))
 end

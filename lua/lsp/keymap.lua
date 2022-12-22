@@ -88,7 +88,7 @@ lsp_keymap.setup = function(bufnr)
   if wk_ok then
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.cmd(
-      'command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 2000 })'
+      'command! LspFormatting lua vim.lsp.buf.format({ timeout_ms = 4000 })'
     )
     vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
     vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')

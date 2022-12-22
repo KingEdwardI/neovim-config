@@ -180,9 +180,19 @@ local function info_text()
   local total_plugins = #vim.tbl_keys(packer_plugins)
   local datetime = os.date(' %d-%m-%Y')
   local version = vim.version()
-  local nvim_version_info = '   v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
+  local nvim_version_info = '   v'
+    .. version.major
+    .. '.'
+    .. version.minor
+    .. '.'
+    .. version.patch
 
-  return '        ' .. datetime .. '   ' .. total_plugins .. ' plugins' .. nvim_version_info
+  return '        '
+    .. datetime
+    .. '   '
+    .. total_plugins
+    .. ' plugins'
+    .. nvim_version_info
 end
 
 local info = {
@@ -218,10 +228,22 @@ local header = {
 local buttons = {
   type = 'group',
   val = {
-    dashboard.button('f', '  Find File', "<Cmd>lua require('fzf-lua').git_files()<CR>"),
-    dashboard.button('g', '  Live Grep', "<Cmd>lua require('fzf-lua').live_grep()<CR>"),
+    dashboard.button(
+      'f',
+      '  Find File',
+      "<Cmd>lua require('fzf-lua').git_files()<CR>"
+    ),
+    dashboard.button(
+      'g',
+      '  Live Grep',
+      "<Cmd>lua require('fzf-lua').live_grep()<CR>"
+    ),
     dashboard.button('t', '¤  Tree', '<Cmd>CHADopen<CR>'),
-    dashboard.button('u', '  Update plugins', '<Cmd>PackerSync<CR><Cmd>PackerCompile<CR>'),
+    dashboard.button(
+      'u',
+      '  Update plugins',
+      '<Cmd>PackerSync<CR><Cmd>PackerCompile<CR>'
+    ),
     dashboard.button('q', '✖  Quit NVIM', '<Cmd>qa<CR>'),
   },
   opts = {
