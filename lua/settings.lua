@@ -26,8 +26,6 @@ let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
 ]])
 
--- hello-world
-
 -- Global options
 vim.o.number = true
 vim.o.linebreak = true

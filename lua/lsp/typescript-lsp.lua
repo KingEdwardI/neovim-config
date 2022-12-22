@@ -4,6 +4,7 @@ local utils = require('utils')
 local invariant_require = utils.invariant_require
 local buf_map = utils.buf_map
 
+local coq = require('plugins.coq_nvim.config')
 local lspconfig = invariant_require('lspconfig')
 local typescript = invariant_require('typescript')
 
@@ -54,7 +55,7 @@ if lspconfig and typescript then
     go_to_source_definition = {
       fallback = true, -- fall back to standard LSP definition on failure
     },
-    server = { -- pass options to lspconfig's setup method
+    server = coq.lsp_ensure_capabilities({ -- pass options to lspconfig's setup method
       on_attach = function(client, bufnr)
         client.server_capabilities.document_formatting = false
         client.server_capabilities.document_range_formatting = false
@@ -71,15 +72,13 @@ if lspconfig and typescript then
         'jsconfig.json',
         '.git'
       ),
-      capabilities = require('cmp_nvim_lsp').default_capabilities(
-        vim.lsp.protocol.make_client_capabilities()
-      ),
+      capabilities = vim.lsp.protocol.make_client_capabilities(),
       hostInfo = 'neovim',
       preferences = {
         quotePreference = 'single',
         includeCompletionsForImportStatements = true,
         importModuleSpecifierPreference = 'project-relative',
       },
-    },
+    }),
   })
 end
