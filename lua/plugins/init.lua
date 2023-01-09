@@ -360,6 +360,13 @@ return packer.startup(function(use)
   --   opt = true,
   --   cmd = 'TSHighlightCapturesUnderCursor',
   -- })
+  
+  use({
+    'rcarriga/nvim-notify',
+    config = function()
+      require('plugins.nvim-notify.config')
+    end,
+  })
 
   --[[
   -- vim-gutentags - generate tags for a project for go to definition
