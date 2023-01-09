@@ -3,6 +3,11 @@ local invariant_require = utils.invariant_require
 
 vim.g.coq_settings = {
   auto_start = 'shut-up',
+  clients = {
+    lsp = {
+      resolve_timeout = 0.10
+    }
+  }
   -- keymap = {
   --   ['repeat'] = '<Leader>a',
   --   bigger_preview = { '<Leader>o' },
