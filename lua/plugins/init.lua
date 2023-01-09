@@ -620,7 +620,6 @@ return packer.startup(function(use)
   --]]
   use({
     'akinsho/git-conflict.nvim',
-    opt = true,
     config = function()
       require('git-conflict').setup()
     end,
