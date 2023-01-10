@@ -1,4 +1,3 @@
-local config = require('lsp.config')
 local utils = require('utils')
 
 local invariant_require = utils.invariant_require

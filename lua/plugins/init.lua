@@ -221,26 +221,22 @@ return packer.startup(function(use)
   })
 
   --[[
-  -- FZF - fuzzy finder
-  -- https://github.com/junegunn/fzf
-  -- fzf-lua - lua port of fzf.vim
-  -- https://github.com/ibhagwan/fzf-lua
+  -- telescope.nvim - fuzzy finder
+  -- https://github.com/nvim-telescope/telescope.nvim
   --]]
   use({
-    'junegunn/fzf',
-    requires = 'vijaymarupudi/nvim-fzf',
-    dir = '~/.fzf',
-    run = './install --all',
-    config = function()
-      require('plugins.fzf.config')
-    end,
-  })
-  use({
-    'ibhagwan/fzf-lua',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
     requires = {
-      'vijaymarupudi/nvim-fzf',
-      'kyazdani42/nvim-web-devicons',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim',
+      'sharkdp/fd',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
     },
+    config = function()
+      require('plugins.telescope.config')
+    end,
   })
 
   --[[
@@ -360,7 +356,7 @@ return packer.startup(function(use)
   --   opt = true,
   --   cmd = 'TSHighlightCapturesUnderCursor',
   -- })
-  
+
   use({
     'rcarriga/nvim-notify',
     config = function()

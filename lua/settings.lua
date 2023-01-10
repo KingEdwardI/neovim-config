@@ -3,7 +3,7 @@ vim.cmd([[
 set iskeyword+=-
 
 "Show character for soft wrapped lines
-set breakindent showbreak=┕→ 
+set breakindent showbreak=┕→
 
 " Don't use stupid tabs
 set expandtab
@@ -24,6 +24,11 @@ autocmd FileType zsh :set ft=bash
 " Disable unused lsp
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
+
+" Maintain undo history between sessions
+set undofile
+" Save history file outside of project
+set undodir=~/.config/nvim/.undo_history
 ]])
 
 -- Global options

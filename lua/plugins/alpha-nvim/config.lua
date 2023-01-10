@@ -58,7 +58,7 @@ endfunction
 function RemoveChocoboHighlight()
   if &ft != 'alpha'
     try
-      call matchdelete(s:chocobo_color1)     
+      call matchdelete(s:chocobo_color1)
     catch
     endtry
     try
@@ -177,7 +177,9 @@ local chocobo_banner = {
 }
 
 local function info_text()
+  -- stylua: ignore start
   local total_plugins = #vim.tbl_keys(packer_plugins)
+  -- stylua: ignore end
   local datetime = os.date(' %d-%m-%Y')
   local version = vim.version()
   local nvim_version_info = '   v'
@@ -228,16 +230,8 @@ local header = {
 local buttons = {
   type = 'group',
   val = {
-    dashboard.button(
-      'f',
-      '  Find File',
-      "<Cmd>lua require('fzf-lua').git_files()<CR>"
-    ),
-    dashboard.button(
-      'g',
-      '  Live Grep',
-      "<Cmd>lua require('fzf-lua').live_grep()<CR>"
-    ),
+    dashboard.button('f', '  Find File', '<Cmd>Telescope find_files<CR>'),
+    dashboard.button('g', '  Live Grep', '<Cmd>Telescope live_grep<CR>'),
     dashboard.button('t', '¤  Tree', '<Cmd>CHADopen<CR>'),
     dashboard.button(
       'u',

@@ -1,3 +1,4 @@
+-- stylua: ignore
 local if_nil = vim.F.if_nil
 local fnamemodify = vim.fn.fnamemodify
 local filereadable = vim.fn.filereadable
