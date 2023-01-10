@@ -6,7 +6,7 @@ local coq = require('plugins.coq_nvim.config')
 local lsp = invariant_require('lspconfig')
 
 if lsp then
-  HOME = vim.fn.expand('$HOME')
+  local HOME = vim.fn.expand('$HOME')
 
   local sumneko_root_path = HOME .. '/tools/lua-language-server'
   local sumneko_binary = sumneko_root_path .. '/bin/macOS/lua-language-server'
