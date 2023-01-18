@@ -6,9 +6,14 @@ local make_mappings = function(bufnr)
   return {
     g = {
       name = 'Goto',
-      d = {
+      D = {
         '<Cmd>LspTypeDef<CR>',
         'Type Definition',
+        buffer = bufnr,
+      },
+      d = {
+        '<Cmd>LspImplementation<CR>',
+        'Implementation',
         buffer = bufnr,
       },
       n = {

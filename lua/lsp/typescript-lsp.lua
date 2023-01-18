@@ -42,7 +42,7 @@ if lspconfig and typescript then
     install_neovim:close()
   end
 
-  -- speed up finding the neovim node library
+  --speed up finding the neovim node library
   vim.cmd(
     "let g:node_host_prog = '/Users/edward.vetterdrake/.nvm/versions/node/"
       .. node_version
@@ -51,7 +51,7 @@ if lspconfig and typescript then
 
   typescript.setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false, -- enable debug logging for commands
+    debug = false, --enable debug logging for commands
     go_to_source_definition = {
       fallback = true, -- fall back to standard LSP definition on failure
     },
@@ -60,7 +60,6 @@ if lspconfig and typescript then
         client.server_capabilities.document_formatting = false
         client.server_capabilities.document_range_formatting = false
 
-        buf_map(bufnr, 'n', '<Leader>gd', ':TypescriptGoToSourceDefinition<CR>')
         buf_map(bufnr, 'n', '<Leader>ii', ':TypescriptAddMissingImports<CR>')
         buf_map(bufnr, 'n', '<Leader>rN', ':TypescriptRenameFile<CR>')
 
