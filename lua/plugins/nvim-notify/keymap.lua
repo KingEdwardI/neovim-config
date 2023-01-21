@@ -4,8 +4,8 @@ local wk_mappings = {
   prefix = '<Leader>',
   h = {
     h = {
+      '<Cmd>Telescope notify<CR>',
       'Show history',
-      '<Cmd>Notifications<CR>',
     },
   },
 }

@@ -9,20 +9,24 @@ local wk_mappings = {
       'Update packages',
     },
     c = {
-      '<Cmd>PackerCompile<CR> <Cmd>echo "finished compiling"<CR>',
+      '<Cmd>PackerCompile<CR> <Cmd>lua require("notify")("Finished compiling")<CR>',
       'Compile packages',
     },
     i = {
-      '<Cmd>PackerInstall<CR> <Cmd>echo "finished installing"<CR>',
+      '<Cmd>PackerInstall<CR> <Cmd>lua require("notify")("Finished installing")<CR>',
       'Install packages',
     },
     C = {
-      '<Cmd>PackerClean<CR> <Cmd>echo "finished cleaning"<CR>',
+      '<Cmd>PackerClean<CR> <Cmd>lua require("notify")("Finished cleaning")<CR>',
       'Clean packages',
     },
     s = {
       '<Cmd>PackerSync<CR>',
       'Sync packages',
+    },
+    p = {
+      '<Cmd>Telescope packer<CR>',
+      'Open Packer Menu',
     },
   },
 }

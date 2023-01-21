@@ -54,6 +54,11 @@ local make_mappings = function(bufnr)
         'Peek at definition',
         buffer = bufnr,
       },
+      t = {
+        '<Cmd>Lspsaga term_toggle<CR>',
+        'Floating Terminal',
+        buffer = bufnr,
+      },
     },
     l = {
       name = 'Lint',

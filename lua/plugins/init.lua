@@ -52,7 +52,16 @@ packer.init({
 })
 
 return packer.startup(function(use)
-  use('wbthomason/packer.nvim')
+  use({
+    'wbthomason/packer.nvim',
+    config = function()
+      require('plugins.packer.config')
+    end,
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-telescope/telescope-packer.nvim',
+    },
+  })
 
   -- Section - General -------------------------------------------------------------------------------------
 
@@ -261,6 +270,15 @@ return packer.startup(function(use)
     end,
   })
 
+  --[[
+  -- telescope-packer.nvim - packer extension for Telescope
+  -- https://github.com/nvim-telescope/telescope-packer.nvim
+  --]]
+  use({
+    'nvim-telescope/telescope-packer.nvim',
+    requires = { 'wbthomason/packer.nvim', 'nvim-telescope/telescope.nvim' },
+  })
+
   --[
   -- vim-which-key - display available keybindings in a popup
   -- https://github.com/liuchengxu/vim-which-key
@@ -362,6 +380,7 @@ return packer.startup(function(use)
     config = function()
       require('plugins.nvim-notify.config')
     end,
+    requires = 'nvim-telescope/telescope.nvim',
   })
 
   --[[
@@ -448,6 +467,12 @@ return packer.startup(function(use)
       'typescriptreact',
       'typescript.tsx',
       'lua',
+      'sh',
+      'zsh',
+      'bash',
+      'python',
+      'rust',
+      'rs',
     },
   })
 
