@@ -30,6 +30,9 @@ set_keymap('n', 'k', 'J', { noremap = true })
 set_keymap('n', 'gt', '<Cmd>bnext<CR>')
 set_keymap('n', 'gT', '<Cmd>bprevious<CR>')
 
+set_keymap('v', '<C-y>', '"+y')
+set_keymap('n', '<C-Y>', '"+yy')
+
 require('plugins.barbar.keymap')
 require('plugins.choosewin.keymap')
 require('plugins.diff-view.keymap')
