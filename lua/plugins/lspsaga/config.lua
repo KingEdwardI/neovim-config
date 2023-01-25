@@ -28,7 +28,7 @@ if saga then
       lines_below = 40,
     },
     rename = {
-      quit = { 'q', '<ESC>' },
+      quit = 'q',
     },
     scroll_preview = {
       scroll_down = '<C-d>',
@@ -40,7 +40,7 @@ if saga then
         normal_bg = '#17101a',
         red = '#820404',
         magenta = '#8f0d52',
-        orange = '#6b3403',
+        orange = '#b35705',
         yellow = '#78550b',
         green = '#344d0e',
         cyan = '#045a63',
