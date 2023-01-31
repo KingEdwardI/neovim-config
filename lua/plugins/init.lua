@@ -438,7 +438,14 @@ return packer.startup(function(use)
   -- filetype.nvim - faster filetype detection loading
   -- https://github.com/nathom/filetype.nvim
   --]]
-  use('nathom/filetype.nvim')
+  -- TODO: Temp disabled due to a bug causing bash files to crash out and need to manually set ft.
+  -- The performance benefits are mostly negligible - impatient does more for me. I will want it back eventually.
+  -- use({
+  --   'nathom/filetype.nvim',
+  --   config = function()
+  --     require('plugins.filetype.config')
+  --   end,
+  -- })
 
   --[[
   -- nvim-spectre - search/replace tool
