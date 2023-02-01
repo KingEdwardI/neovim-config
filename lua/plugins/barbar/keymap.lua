@@ -1,8 +1,7 @@
 local wk = require('which-key')
 local opts = { noremap = true, silent = true }
 
-local wk_mappings = {
-  prefix = '<Leader>',
+local no_prefix_mappings = {
   g = {
     name = 'Goto',
     t = {
@@ -31,6 +30,10 @@ local wk_mappings = {
       opts = opts,
     },
   },
+}
+
+local wk_mappings = {
+  prefix = '<Leader>',
   b = {
     name = 'Buffer actions',
     s = {
@@ -61,13 +64,14 @@ local wk_mappings = {
 
 for index = 0, 9, 1 do
   local i = tostring(index)
-  wk_mappings.g[i] = {
+  wk_mappings.b[i] = {
     '<Cmd>BufferGoto ' .. i .. '<CR>',
     'Go to buffer no ' .. i,
   }
 end
 
 wk.register(wk_mappings)
+wk.register(no_prefix_mappings)
 
 -- Todo: need to figure out good mappings for these
 -- Wipeout buffer
