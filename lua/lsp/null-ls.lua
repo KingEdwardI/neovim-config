@@ -8,6 +8,35 @@ local null_ls = invariant_require('null-ls')
 if null_ls then
   local builtins = null_ls.builtins
 
+  local ts_expect_error_action = {
+    method = null_ls.methods.CODE_ACTION,
+    filetypes = { 'typescript', 'typescriptreact' },
+    generator = {
+      fn = function(ctx)
+        local expect_error_str_lit = '// @ts-expect-error'
+        local current_line = ctx.row
+        local previous_line = ctx.row - 1
+        if previous_line ~= expect_error_str_lit then
+          return {
+            {
+              title = 'Add ts-expect-error',
+              action = function()
+                local lines = { expect_error_str_lit }
+                vim.api.nvim_buf_set_lines(
+                  ctx.bufnr,
+                  previous_line,
+                  previous_line,
+                  false,
+                  lines
+                )
+              end,
+            },
+          }
+        end
+      end,
+    },
+  }
+
   null_ls.setup({
     -- debug = true,
     default_timeout = 4000,
@@ -18,6 +47,9 @@ if null_ls then
       builtins.formatting.eslint_d, -- prettier, eslint, eslint_d, or prettierd
       require('typescript.extensions.null-ls.code-actions'),
       null_ls.builtins.diagnostics.tsc,
+
+      -- Shell
+      null_ls.builtins.diagnostics.shellcheck,
 
       -- Lua
       builtins.formatting.stylua,
@@ -30,4 +62,6 @@ if null_ls then
     },
     on_attach = config.on_attach,
   })
+
+  null_ls.register(ts_expect_error_action)
 end
