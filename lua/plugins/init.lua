@@ -96,6 +96,15 @@ return packer.startup(function(use)
   })
 
   --[[
+  -- eslint.nvim - lsp for eslint
+  -- https://github.com/MunifTanjim/eslint.nvim
+  --]]
+  use({
+    'MunifTanjim/eslint.nvim',
+    requires = { 'jose-elias-alvarez/null-ls.nvim', 'neovim/nvim-lspconfig' },
+  })
+
+  --[[
   -- rust-tools - lsp config for rust
   -- https://github.com/simrat39/rust-tools.nvim
   --]]
@@ -134,27 +143,27 @@ return packer.startup(function(use)
 
   --[[
   -- coq-nvim - Fast as FUCK autocompletion
-  -- https://github.com/ms-jpq/coq_nvim
+  -- https://github.com/ms-jpq/coq-nvim
   --]]
   use({
     'ms-jpq/coq_nvim',
     branch = 'coq',
     run = ':COQdeps',
     config = function()
-      require('plugins.coq_nvim.config')
+      require('plugins.coq-nvim.config')
     end,
   })
 
   use({
     'ms-jpq/coq.artifacts',
     branch = 'artifacts',
-    requires = 'ms-jpq/coq_nvim',
+    requires = 'ms-jpq/coq-nvim',
   })
 
   use({
     'ms-jpq/coq.thirdparty',
     branch = '3p',
-    requires = 'ms-jpq/coq_nvim',
+    requires = 'ms-jpq/coq-nvim',
   })
 
   --[[

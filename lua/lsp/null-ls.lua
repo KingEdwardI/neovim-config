@@ -8,13 +8,13 @@ local null_ls = invariant_require('null-ls')
 if null_ls then
   local builtins = null_ls.builtins
 
+  -- Todo: get this to put the comment on the right indentation level
   local ts_expect_error_action = {
     method = null_ls.methods.CODE_ACTION,
     filetypes = { 'typescript', 'typescriptreact' },
     generator = {
       fn = function(ctx)
         local expect_error_str_lit = '// @ts-expect-error'
-        local current_line = ctx.row
         local previous_line = ctx.row - 1
         if previous_line ~= expect_error_str_lit then
           return {
@@ -36,6 +36,8 @@ if null_ls then
       end,
     },
   }
+
+  -- local json_stringify = {}
 
   null_ls.setup({
     -- debug = true,

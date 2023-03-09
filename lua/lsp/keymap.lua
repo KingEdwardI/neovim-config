@@ -11,11 +11,6 @@ local make_mappings = function(bufnr)
         'Type Definition',
         buffer = bufnr,
       },
-      d = {
-        '<Cmd>LspImplementation<CR>',
-        'Implementation',
-        buffer = bufnr,
-      },
       n = {
         '<Cmd>Lspsaga diagnostic_jump_next<CR>',
         'Next issue',
@@ -102,7 +97,7 @@ lsp_keymap.setup = function(bufnr)
     )
     vim.cmd('command! LspRename lua vim.lsp.buf.rename()')
     vim.cmd('command! LspTypeDef lua vim.lsp.buf.type_definition()')
-    vim.cmd('command! LspImplementation lua vim.lsp.buf.implementation()')
+    vim.cmd('command! LspDefinition lua vim.lsp.buf.definition()')
 
     wk.register(make_mappings(bufnr), { prefix = '<Leader>' })
   else

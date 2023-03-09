@@ -10,6 +10,11 @@ wk.register({
   },
 })
 
+-- Todo: make an autocommand to focus on the open file when switching to the tree via <c-w><c-w>
+-- vim.cmd([[
+-- autocmd BufEnter,FileType CHADtree :normal ,tJ
+-- ]])
+
 vim.api.nvim_set_var('chadtree_settings', {
   keymap = {
     refresh = { '<Leader>tR' },

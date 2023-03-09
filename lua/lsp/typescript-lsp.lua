@@ -4,7 +4,7 @@ local utils = require('utils')
 local invariant_require = utils.invariant_require
 local buf_map = utils.buf_map
 
-local coq = require('plugins.coq_nvim.config')
+local coq = require('plugins.coq-nvim.config')
 local lspconfig = invariant_require('lspconfig')
 local typescript = invariant_require('typescript')
 

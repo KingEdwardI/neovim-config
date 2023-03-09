@@ -17,7 +17,7 @@ local wk_mappings = {
       opts = opts,
     },
     d = {
-      '<Cmd>Trouble lsp_document_diagnostics<CR>',
+      '<Cmd>Trouble document_diagnostics<CR>',
       'Open document diagnostics',
       opts = opts,
     },

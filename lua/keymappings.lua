@@ -5,6 +5,7 @@ local set_keymap = utils.set_keymap
 
 vim.g.mapleader = ','
 
+
 -- Remap hjkl movement keys for Dvorak & personal preference
 set_keymap('', 'h', '<Left>')
 set_keymap('', 't', '<Up>')
@@ -32,6 +33,8 @@ set_keymap('n', 'gT', '<Cmd>bprevious<CR>')
 
 set_keymap('v', '<C-y>', '"+y')
 set_keymap('n', '<C-Y>', '"+yy')
+-- wrap all lines at the first space after the 80th column.
+set_keymap('n', '<C-f>f', '<Cmd>%s/\\(.\\{80\\}.\\{-}\\s\\)/\\1\\r/g<CR>')
 
 require('plugins.barbar.keymap')
 require('plugins.choosewin.keymap')

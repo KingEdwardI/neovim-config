@@ -5,9 +5,12 @@ vim.g.coq_settings = {
   auto_start = 'shut-up',
   clients = {
     lsp = {
-      resolve_timeout = 0.10
-    }
-  }
+      resolve_timeout = 0.10,
+    },
+  },
+  limits = {
+    completion_auto_timeout = .75,
+  },
   -- keymap = {
   --   ['repeat'] = '<Leader>a',
   --   bigger_preview = { '<Leader>o' },
