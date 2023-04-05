@@ -39,14 +39,15 @@ if null_ls then
 
   -- local json_stringify = {}
 
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#refactoring
   null_ls.setup({
     -- debug = true,
     default_timeout = 4000,
     sources = {
       -- Javascript / Typescript
-      builtins.diagnostics.eslint_d, -- eslint or eslint_d
+      builtins.diagnostics.eslint_d,  -- eslint or eslint_d
       builtins.code_actions.eslint_d, -- eslint or eslint_d
-      builtins.formatting.eslint_d, -- prettier, eslint, eslint_d, or prettierd
+      builtins.formatting.eslint_d,   -- prettier, eslint, eslint_d, or prettierd
       require('typescript.extensions.null-ls.code-actions'),
       null_ls.builtins.diagnostics.tsc,
 
@@ -56,6 +57,20 @@ if null_ls then
       -- Lua
       builtins.formatting.stylua,
       builtins.diagnostics.luacheck.with({ extra_args = { '--global vim' } }),
+
+      -- Python
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#ruff
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#vulture
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#reorder_python_imports -- Compare to isort
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#isort -- compare to reorder_python_imports
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#pyflyby
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#black -- Compare to blue
+  -- Todo: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#blue -- Compare to black
+      null_ls.builtins.diagnostics.pycodestyle,
+      null_ls.builtins.diagnostics.mypy,
+      null_ls.builtins.diagnostics.pydocstyle,
+      null_ls.builtins.diagnostics.pylint,
+
 
       -- Other
       null_ls.builtins.diagnostics.codespell,

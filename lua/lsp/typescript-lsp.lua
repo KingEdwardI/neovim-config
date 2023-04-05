@@ -23,8 +23,8 @@ end
 local check_neovim_exists = function(version)
   local does_exist = io.popen(
     '[ -d $HOME/.nvm/versions/node/'
-      .. version
-      .. '/lib/node_modules/neovim ]  && echo true || echo false'
+    .. version
+    .. '/lib/node_modules/neovim ]  && echo true || echo false'
   )
   local neovim_exists = remove_newline(does_exist:read('*a'))
   does_exist:close()
@@ -38,24 +38,39 @@ if lspconfig and typescript then
   local neovim_exists = check_neovim_exists(node_version)
 
   if neovim_exists == 'false' then
-    local install_neovim = io.popen('npm install --location=global -g neovim')
+    local base_packages = {
+      'neovim',
+      'typescript',
+      'typescript-language-server',
+      'eslint',
+      'eslint_d',
+    }
+    local additional_packages = { 'cspell', 'markdownlint-cli', 'markdownlint' }
+    local install_neovim = io.popen(
+      'npm install --location=global -g'
+      .. ' '
+      .. table.concat(base_packages, ' ')
+      .. ' '
+      .. table.concat(additional_packages, ' ')
+    )
     install_neovim:close()
   end
 
   --speed up finding the neovim node library
   vim.cmd(
     "let g:node_host_prog = '/Users/edward.vetterdrake/.nvm/versions/node/"
-      .. node_version
-      .. "/bin/neovim-node-host'"
+    .. node_version
+    .. "/bin/neovim-node-host'"
   )
 
   typescript.setup({
-    disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false, --enable debug logging for commands
+    disable_commands = false,              -- prevent the plugin from creating Vim commands
+    debug = false,                         --enable debug logging for commands
     go_to_source_definition = {
-      fallback = true, -- fall back to standard LSP definition on failure
+      fallback = true,                     -- fall back to standard LSP definition on failure
     },
-    server = coq.lsp_ensure_capabilities({ -- pass options to lspconfig's setup method
+    server = coq.lsp_ensure_capabilities({
+                                           -- pass options to lspconfig's setup method
       on_attach = function(client, bufnr)
         client.server_capabilities.document_formatting = false
         client.server_capabilities.document_range_formatting = false

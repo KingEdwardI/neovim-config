@@ -21,7 +21,7 @@ vim.api.nvim_set_var('chadtree_settings', {
     change_focus = { '<Nop>' },
     change_focus_up = { '<Nop>' },
     change_dir = { '<Leader>^' },
-    tertiary = { 't', '<middlemouse>' },
+    tertiary = { 't' },
     v_split = { '<Leader>v' },
     h_split = { '<Leader>s' },
     open_sys = { '<Leader>o' },
