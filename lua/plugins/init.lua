@@ -510,6 +510,21 @@ return packer.startup(function(use)
     end,
   })
 
+  --[[
+  -- nx.nvim - nx helper
+  -- https://github.com/Equilibris/nx.nvim
+  --]]
+  -- TODO: try to get this working.
+  -- use({
+  --   'Equilibris/nx.nvim',
+  --   requires = {
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  --   config = function()
+  --     require('nx').setup({})
+  --   end,
+  -- })
+
   -- EndSection - General -------------------------------------------------------------------------------------
 
   -- Section - Bash -------------------------------------------------------------------------------------
