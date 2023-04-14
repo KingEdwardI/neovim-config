@@ -666,7 +666,7 @@ return packer.startup(function(use)
   use({
     'sindrets/diffview.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    opt = true,
+    -- opt = true,
     cmd = { 'DiffviewOpen', 'DiffviewClose' },
     config = function()
       require('plugins.diff-view.config')
