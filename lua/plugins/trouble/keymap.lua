@@ -1,3 +1,6 @@
+local utils = require('utils')
+local invariant_require = utils.invariant_require
+local trouble = invariant_require('trouble')
 local wk = require('which-key')
 
 local opts = { silent = true, noremap = true }
@@ -35,6 +38,14 @@ local wk_mappings = {
       '<Cmd>TroubleRefresh<CR>',
       'Refresh diagnostic window',
       opts = opts,
+    },
+    n = {
+      '<Cmd>lua vim.diagnostic.goto_next({ float = false })<CR>',
+      "Go to next diagnostic"
+    },
+    N = {
+      '<Cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>',
+      "Go to next diagnostic"
     },
   },
 }
