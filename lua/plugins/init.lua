@@ -69,7 +69,7 @@ return packer.startup(function(use)
   -- mason.nvim - LSP manager
   -- https://github.com/williamboman/mason-lspconfig.nvimneovim/nvim-lspconfig
   --]]
-  use({ 
+  use({
     'williamboman/mason.nvim',
   })
   use({
@@ -135,6 +135,14 @@ return packer.startup(function(use)
   --]]
   use({
     'jose-elias-alvarez/null-ls.nvim',
+  })
+
+  --[[
+  -- vim-bitoai
+  -- https://github.com/zhenyangze/vim-bitoai
+  --]]
+  use({
+    'zhenyangze/vim-bitoai',
   })
 
   --[[
