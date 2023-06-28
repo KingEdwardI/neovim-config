@@ -36,12 +36,12 @@ if not packer then
 end
 
 -- Auto compile when there are changes in plugins.lua
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 packer.init({
   display = {
@@ -66,6 +66,23 @@ return packer.startup(function(use)
   -- Section - General -------------------------------------------------------------------------------------
 
   --[[
+  -- mason.nvim - LSP manager
+  -- https://github.com/williamboman/mason-lspconfig.nvimneovim/nvim-lspconfig
+  --]]
+  use({ 
+    'williamboman/mason.nvim',
+  })
+  use({
+    'williamboman/mason-lspconfig.nvim',
+    -- run = ':MasonUpdate', -- :MasonUpdate updates registry contents
+    -- config = function()
+    --   print('mason')
+    --   vim.cmd('echo "mason"')
+    --   require('plugins.mason.config')
+    -- end,
+  })
+
+  --[[
   -- lsp config
   -- https://github.com/neovim/nvim-lspconfig
   --]]
@@ -75,7 +92,9 @@ return packer.startup(function(use)
       'jose-elias-alvarez/typescript.nvim',
       'jose-elias-alvarez/null-ls.nvim',
     },
+    run = ':MasonUpdate', -- :MasonUpdate updates registry contents
     config = function()
+      require('plugins.mason.config')
       require('lsp.lsp')
     end,
   })

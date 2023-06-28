@@ -58,7 +58,7 @@ local make_mappings = function(bufnr)
     l = {
       name = 'Lint',
       f = {
-        '<Cmd>LspFormatting<CR>',
+        '<Cmd>LspFormatting<CR><Cmd>w<CR>',
         'Fix issues',
         buffer = bufnr,
       },
