@@ -490,11 +490,11 @@ return packer.startup(function(use)
   use('windwp/nvim-spectre')
 
   --[[
-  -- lspsaga - floating window for various things
-  -- https://github.com/glepnir/lspsaga.nvim
+  -- lspsaga - super mega neovim stuff
+  -- https://github.com/nvimdev/lspsaga.nvim
   --]]
   use({
-    'glepnir/lspsaga.nvim',
+    'nvimdev/lspsaga.nvim',
     opt = true,
     requires = 'neovim/nvim-lspconfig',
     config = function()
@@ -502,21 +502,7 @@ return packer.startup(function(use)
     end,
     branch = 'main',
     cmd = { 'Lspsaga' },
-    ft = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-      'lua',
-      'sh',
-      'zsh',
-      'bash',
-      'python',
-      'rust',
-      'rs',
-    },
+    after = 'nvim-lspconfig',
   })
 
   --[[
@@ -604,6 +590,12 @@ return packer.startup(function(use)
     opt = true,
     ft = { 'json5' },
   })
+
+  --[[
+  -- twoslash-queries.nvim - use a comment to show a typedef with your cursor free
+  -- https://github.com/marilari88/twoslash-queries.nvim
+  --]]
+  use({ 'marilari88/twoslash-queries.nvim' })
 
   -- EndSection - JS/TS -------------------------------------------------------------------------------------
 

@@ -7,6 +7,7 @@ local buf_map = utils.buf_map
 local coq = require('plugins.coq-nvim.config')
 local lspconfig = invariant_require('lspconfig')
 local typescript = invariant_require('typescript')
+local twoslash = invariant_require('twoslash-queries')
 
 local remove_newline = function(str)
   return string.gsub(str, '[\n\r]', '')
@@ -30,6 +31,10 @@ local check_neovim_exists = function(version)
   does_exist:close()
 
   return neovim_exists
+end
+
+if not twoslash then
+  print('twoslash-queries is not available!')
 end
 
 if lspconfig and typescript then
@@ -77,6 +82,10 @@ if lspconfig and typescript then
 
         buf_map(bufnr, 'n', '<Leader>ii', ':TypescriptAddMissingImports<CR>')
         buf_map(bufnr, 'n', '<Leader>rN', ':TypescriptRenameFile<CR>')
+
+        if twoslash then
+          twoslash.attach(client, bufnr)
+        end
 
         config.on_attach(client, bufnr)
       end,
