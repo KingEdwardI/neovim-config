@@ -53,6 +53,11 @@
         "/usr/local/Cellar/neovim/HEAD-5688a9f/share/nvim/runtime",
         "/usr/local/Cellar/neovim/HEAD-5688a9f/share/nvim/runtime/pack/dist/opt/matchit",
         "/Users/edward.vetterdrake/.local/share/nvim/site/pack/packer/start/vim-mdx-js/after",
-        "${3rd}/luassert/library"
+        "${3rd}/luassert/library",
+        "${3rd}/lfs/library"
+    ],
+    "diagnostics.globals": [
+        "vim",
+        "lfs"
     ]
 }

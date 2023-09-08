@@ -130,14 +130,6 @@ return packer.startup(function(use)
   use('simrat39/rust-tools.nvim')
 
   --[[
-  -- null-ls
-  -- https://github.com/jose-elias-alvarez/null-ls.nvim
-  --]]
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-  })
-
-  --[[
   -- vim-bitoai
   -- https://github.com/zhenyangze/vim-bitoai
   --]]
@@ -488,22 +480,6 @@ return packer.startup(function(use)
   -- https://github.com/nvim-pack/nvim-spectre
   --]]
   use('windwp/nvim-spectre')
-
-  --[[
-  -- lspsaga - super mega neovim stuff
-  -- https://github.com/nvimdev/lspsaga.nvim
-  --]]
-  use({
-    'nvimdev/lspsaga.nvim',
-    opt = true,
-    requires = 'neovim/nvim-lspconfig',
-    config = function()
-      require('plugins.lspsaga.config')
-    end,
-    branch = 'main',
-    cmd = { 'Lspsaga' },
-    after = 'nvim-lspconfig',
-  })
 
   --[[
   -- indent-blankline.nvim - indentation guides

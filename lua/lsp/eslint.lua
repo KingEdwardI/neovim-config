@@ -5,7 +5,7 @@ local eslint = invariant_require('eslint')
 
 if eslint then
   eslint.setup({
-    bin = 'eslint_d', -- or `eslint_d`
+    bin = 'eslint_d',
     code_actions = {
       enable = true,
       apply_on_save = {
