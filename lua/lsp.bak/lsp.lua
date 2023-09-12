@@ -1,8 +1,0 @@
-require('lsp.efm-langserver.init')
-require('lsp.deno')
-require('lsp.eslint')
-require('lsp.lua')
-require('lsp.typescript')
-require('lsp.python')
-require('lsp.rust')
-require('lsp.yaml')
