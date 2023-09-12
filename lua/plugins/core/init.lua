@@ -26,6 +26,18 @@ return function(use)
   use('tpope/vim-surround')
 
   --[[
+  -- vim-dispatch-neovim - adds support for neovim's terminal emulator to vim-dispatch
+  -- https://github.com/radenling/vim-dispatch-neovim#dispatch-neovim
+  -- https://github.com/tpope/vim-dispatch#dispatchvim
+  --]]
+  use({
+    'radenling/vim-dispatch-neovim',
+    requires = 'tpope/vim-dispatch',
+    opt = true,
+    cmd = { 'Dispatch', 'Make', 'Focus', 'Start' },
+  })
+
+  --[[
  -- vim-matchup - extends the `%` command
  -- https://github.com/andymass/vim-matchup
  --]]

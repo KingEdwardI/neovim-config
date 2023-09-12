@@ -53,6 +53,7 @@ packer.init({
 
 local setup_core = invariant_require('plugins.core')
 local setup_ui = invariant_require('plugins.ui')
+local setup_lsp = invariant_require('plugins.language-support')
 
 return packer.startup(function(use)
   use({
@@ -73,6 +74,7 @@ return packer.startup(function(use)
 
   setup_core(use)
   setup_ui(use)
+  setup_lsp(use)
 
   if PackerBootstrap then
     require('packer').sync()

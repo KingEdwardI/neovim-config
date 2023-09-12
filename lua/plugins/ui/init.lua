@@ -140,7 +140,7 @@ return function(use)
   -- ]]
   use('onsails/lspkind-nvim')
 
- --[[
+  --[[
  -- indent-blankline.nvim - indentation guides
  -- https://github.com/lukas-reineke/indent-blankline.nvim
  --]]
