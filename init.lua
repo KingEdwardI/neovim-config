@@ -5,4 +5,4 @@ invariant_require('impatient')
 
 require('plugins')
 require('keymappings')
-require('settings')
+require('core_settings')

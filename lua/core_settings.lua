@@ -12,8 +12,9 @@ set tabstop=2
 " start scrolling 5 lines before cursor reaches the edge
 set scrolloff=5
 
-" set foldmethod and open all folds
-set foldmethod=indent
+" set foldmethod
+set foldmethod=expr
+" open all folds on open
 set foldlevelstart=99
 
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -80,3 +81,4 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   vim.g['loaded_' .. plugin] = 1
 end
+
