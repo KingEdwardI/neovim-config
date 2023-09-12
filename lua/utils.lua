@@ -18,8 +18,8 @@ end
 utils.check_neovim_exists = function(version)
   local does_exist = io.popen(
     '[ -d $HOME/.nvm/versions/node/'
-    .. version
-    .. '/lib/node_modules/neovim ]  && echo true || echo false'
+      .. version
+      .. '/lib/node_modules/neovim ]  && echo true || echo false'
   )
   local neovim_exists
   if does_exist then

@@ -39,7 +39,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost lua/plugins/init.lua source <afile> | PackerCompile
   augroup end
 ]])
 
@@ -58,22 +58,21 @@ return packer.startup(function(use)
   use({
     'wbthomason/packer.nvim',
     config = function()
-      -- can't use invariant_require here because of dependency cycles
-      local telescope = invariant_require('telescope')
+      local present, telescope = pcall(require, 'telescope')
 
-      if telescope then
+      if present then
         telescope.load_extension('packer')
       end
     end,
     requires = {
       'nvim-telescope/telescope.nvim',
       'nvim-telescope/telescope-packer.nvim',
+      'nvim-lua/plenary.nvim',
     },
   })
 
   setup_core(use)
   setup_ui(use)
-
 
   if PackerBootstrap then
     require('packer').sync()

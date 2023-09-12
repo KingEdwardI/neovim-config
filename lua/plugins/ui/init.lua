@@ -90,12 +90,13 @@ return function(use)
   -- nvim-tree - File explorer
   -- https://github.com/nvim-tree/nvim-tree.lua
   --]]
-  use {
+  use({
     'nvim-tree/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function() require('plugins.ui.nvim-tree') end
-  }
-
+    config = function()
+      require('plugins.ui.nvim-tree')
+    end,
+  })
 
   --[[
   -- lualine - fancy status line
@@ -139,17 +140,39 @@ return function(use)
   -- ]]
   use('onsails/lspkind-nvim')
 
+ --[[
+ -- indent-blankline.nvim - indentation guides
+ -- https://github.com/lukas-reineke/indent-blankline.nvim
+ --]]
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.ui.indent-blankline')
+    end,
+  })
+
+  --[[
+   -- pretty-fold.nvim - customized line folding
+  -- https://github.com/anuvyklack/pretty-fold.nvim
+ --]]
+  use({
+    'anuvyklack/pretty-fold.nvim',
+    config = function()
+      require('plugins.ui.pretty-fold')
+    end,
+  })
+
   --[[
   -- nui.nvim - general purpose UI library
   -- https://github.com/MunifTanjim/nui.nvim
   -- ]]
---   use {
---   'MunifTanjim/nui.nvim',
---   requires = {'nvim-lua/plenary.nvim'},
---     config = function()
---     require('plugins.ui.floating-terminal')
---     end
--- }
+  --   use {
+  --   'MunifTanjim/nui.nvim',
+  --   requires = {'nvim-lua/plenary.nvim'},
+  --     config = function()
+  --     require('plugins.ui.floating-terminal')
+  --     end
+  -- }
 
   -- Todo: This had issues in the past, come back to it later.
   --[[

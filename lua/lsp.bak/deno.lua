@@ -14,7 +14,7 @@ if lspconfig then
       end,
       root_dir = function(filename)
         return lspconfig.util.root_pattern('deno.json', '.git')(filename)
-            or vim.fn.getcwd()
+          or vim.fn.getcwd()
       end,
     }),
   })

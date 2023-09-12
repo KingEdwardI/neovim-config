@@ -1,4 +1,5 @@
---[[ ---------- IMPORTANT ---------- ]]--
+--[[ ---------- IMPORTANT ---------- ]]
+--
 -- keymaps must be loaded separately from the configs
 -- so that lazy loaded plugins can be activated on command
 

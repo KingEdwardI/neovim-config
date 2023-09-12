@@ -15,12 +15,27 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
-vim.api.nvim_set_keymap('n', '<Leader>tt', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>tR', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>tc', ':NvimTreeClose<CR>', { noremap = true, silent = true }) -- Close
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>tt',
+  ':NvimTreeToggle<CR>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>tR',
+  ':NvimTreeRefresh<CR>',
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+  'n',
+  '<Leader>tc',
+  ':NvimTreeClose<CR>',
+  { noremap = true, silent = true }
+) -- Close
 
 -- Settings
-require'nvim-tree'.setup {
+require('nvim-tree').setup({
   disable_netrw = true,
   hijack_netrw = true,
   open_on_tab = false,
@@ -29,13 +44,13 @@ require'nvim-tree'.setup {
   update_focused_file = {
     enable = false,
     update_cwd = false,
-    ignore_list = {}
+    ignore_list = {},
   },
   system_open = {
     cmd = nil,
-    args = {}
+    args = {},
   },
-  sort = { sorter = 'case_sensitive'},
+  sort = { sorter = 'case_sensitive' },
   view = {
     float = { enable = true },
     width = 35,
@@ -46,17 +61,17 @@ require'nvim-tree'.setup {
     add_trailing = true,
     root_folder_label = false,
     special_files = {
-        -- Disable for now, need to figure out what files to use
+      -- Disable for now, need to figure out what files to use
     },
     highlight_git = true,
     highlight_diagnostics = true,
     highlight_opened_files = 'icon',
     highlight_modified = 'icon',
-    indent_markers = { enable = true, },
+    indent_markers = { enable = true },
   },
-  filters = { git_ignored = false, },
-  actions = { change_dir = { enable = false, restrict_above_cwd = true }, },
-}
+  filters = { git_ignored = false },
+  actions = { change_dir = { enable = false, restrict_above_cwd = true } },
+})
 
 -- Ignore specific files
 vim.g.nvim_tree_ignore = { '.DS_Store' }

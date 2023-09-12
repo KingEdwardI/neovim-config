@@ -41,11 +41,11 @@ local wk_mappings = {
     },
     n = {
       '<Cmd>lua vim.diagnostic.goto_next({ float = false })<CR>',
-      "Go to next diagnostic"
+      'Go to next diagnostic',
     },
     N = {
       '<Cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>',
-      "Go to previous diagnostic"
+      'Go to previous diagnostic',
     },
   },
 }

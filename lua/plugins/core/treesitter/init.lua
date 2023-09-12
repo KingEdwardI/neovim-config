@@ -7,7 +7,7 @@ if ts_configs then
     fold = { enable = true },
     indent = { enable = true },
     ensure_installed = 'all',
-      highlight = {
+    highlight = {
       enable = true, -- false will disable the whole extension
       use_languagetree = true, -- Use the language tree for better highlighting
     },
@@ -23,7 +23,7 @@ if ts_configs then
       smart_rename = {
         enable = true,
         keymaps = {
-          smart_rename = ",rn",
+          smart_rename = ',rn',
         },
       },
     },

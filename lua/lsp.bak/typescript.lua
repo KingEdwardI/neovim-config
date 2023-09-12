@@ -31,10 +31,10 @@ if lspconfig and typescript then
     local additional_packages = { 'cspell', 'markdownlint-cli', 'markdownlint' }
     local install_neovim = io.popen(
       'npm install --location=global -g'
-      .. ' '
-      .. table.concat(base_packages, ' ')
-      .. ' '
-      .. table.concat(additional_packages, ' ')
+        .. ' '
+        .. table.concat(base_packages, ' ')
+        .. ' '
+        .. table.concat(additional_packages, ' ')
     )
     if install_neovim then
       install_neovim:close()
@@ -44,15 +44,15 @@ if lspconfig and typescript then
   --speed up finding the neovim node library
   vim.cmd(
     "let g:node_host_prog = '/Users/edward.vetterdrake/.nvm/versions/node/"
-    .. node_version
-    .. "/bin/neovim-node-host'"
+      .. node_version
+      .. "/bin/neovim-node-host'"
   )
 
   typescript.setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    debug = false,            --enable debug logging for commands
+    debug = false, --enable debug logging for commands
     go_to_source_definition = {
-      fallback = true,        -- fall back to standard LSP definition on failure
+      fallback = true, -- fall back to standard LSP definition on failure
     },
     server = coq.lsp_ensure_capabilities({
       -- pass options to lspconfig's setup method

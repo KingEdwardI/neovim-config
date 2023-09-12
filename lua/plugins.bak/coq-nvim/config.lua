@@ -9,7 +9,7 @@ vim.g.coq_settings = {
     },
   },
   limits = {
-    completion_auto_timeout = .75,
+    completion_auto_timeout = 0.75,
   },
   -- keymap = {
   --   ['repeat'] = '<Leader>a',
