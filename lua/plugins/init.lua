@@ -1,4 +1,5 @@
 local utils = require('utils')
+
 local invariant_require = utils.invariant_require
 local fn = vim.fn
 local PackerBootstrap
@@ -71,6 +72,8 @@ return packer.startup(function(use)
       'nvim-lua/plenary.nvim',
     },
   })
+  use('lunarmodules/Penlight')
+  use('lunarmodules/luafilesystem')
 
   setup_core(use)
   setup_ui(use)

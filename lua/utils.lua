@@ -1,33 +1,29 @@
+-- local path = require('pl.path')
 local utils = {}
 
-utils.remove_newline = function(str)
-  return string.gsub(str, '[\n\r]', '')
+utils.isnil = function(str)
+  return str == nil or str == ''
 end
 
 utils.get_node_version = function()
-  local check_node_version = io.popen('node --version')
-  local node_version
-  if check_node_version then
-    node_version = utils.remove_newline(check_node_version:read('*a'))
-    check_node_version:close()
+  local handle = io.popen('node -v')
+  local result
+  if handle then
+    result = handle:read('*a')
+    handle:close()
   end
-
-  return node_version
+  return result:sub(1, -2) -- Remove the trailing newline
 end
 
-utils.check_neovim_exists = function(version)
-  local does_exist = io.popen(
-    '[ -d $HOME/.nvm/versions/node/'
-      .. version
-      .. '/lib/node_modules/neovim ]  && echo true || echo false'
-  )
-  local neovim_exists
-  if does_exist then
-    neovim_exists = utils.remove_newline(does_exist:read('*a'))
-    does_exist:close()
-  end
+-- Todo get this working, and working with penlight
+utils.is_neovim_npm_installed = function(version)
+  -- local neovim_npm_path = os.getenv('HOME')
+  --   .. '/.nvm/versions/node/'
+  --   .. version
+  --   .. '/lib/node_modules/neovim'
 
-  return neovim_exists
+  return true
+  -- return path.isdir(neovim_npm_path)
 end
 
 utils.set_keymap = function(mode, mapping, command, opts)
@@ -56,28 +52,32 @@ end
 utils.invariant_require = function(pluginName)
   local present, plugin = pcall(require, pluginName)
 
+  local prompt_text = [[
+Error occurred when loading a plugin: Unable to load "]] .. pluginName .. [[" 
+in file "]] .. debug.getinfo(2, 'S').source
+          --           .. [["
+          -- Would you like to run PackerInstall Y/n?
+          -- ]],
+
   if not present then
     if pluginName ~= 'packer' then
-      vim.cmd([[
-        echohl ErrorMsg
-        echo "Error occurred while loading a plugin"
-        echohl None
-        echo "Unable to load plugin: \"]] .. pluginName .. [[\"."
-        echo "Are you sure it is installed? Check :PackerStatus and run :PackerInstall if needed."
-      ]])
+            vim.notify(prompt_text, vim.log.levels.ERROR)
+
+      -- vim.ui.input(
+      --   {
+      --     prompt = prompt_text,
+      --   }
+        --   function(input)
+        --   if utils.isnil(input) or string.lower(input) == 'y' then
+        --     vim.cmd(':PackerInstall<CR>')
+        --   end
+        -- end
+      -- )
     end
     return false
   end
 
   return plugin
-end
-
-utils.merge_table = function(table1, table2)
-  for _, v in ipairs(table2) do
-    table.insert(table1, v)
-  end
-
-  return table1
 end
 
 return utils

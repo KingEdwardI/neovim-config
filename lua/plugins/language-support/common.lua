@@ -3,7 +3,7 @@ local config = {}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+config.on_attach = function(client, bufnr)
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
   end
@@ -21,14 +21,12 @@ local on_attach = function(client, bufnr)
   if client.server_capabilities.document_formatting then
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()')
   end
+
+  -- prevent lsp from updating while in insert mode
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    { update_in_insert = false }
+  )
 end
-
-config.on_attach = on_attach
-
--- prevent lsp from updating while in insert mode
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  { update_in_insert = false }
-)
 
 return config

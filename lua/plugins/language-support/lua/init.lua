@@ -3,10 +3,10 @@ local config = require('plugins.language-support.common')
 local invariant_require = utils.invariant_require
 
 local coq = require('plugins.core.coq-nvim')
-local lsp = invariant_require('lspconfig')
+local lspconfig = invariant_require('lspconfig')
 
-if lsp then
-  lsp.lua_ls.setup(coq.lsp_ensure_capabilities({
+if lspconfig then
+  lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
     on_attach = config.on_attach,
     settings = {
       Lua = {
@@ -26,6 +26,6 @@ if lsp then
           enable = false,
         },
       },
-    },
+    }
   }))
 end

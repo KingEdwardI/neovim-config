@@ -46,4 +46,19 @@ be using until something quantifiably better comes along.
   - There may be a better way to do this...
 - Configs are loaded as part of the `use` method so that if a plugin is not available, errors aren't thrown, and so
   that configurations for lazy loaded plugins are not loaded until necessary.
+- Using [Penlight](https://github.com/lunarmodules/Penlight) for utility methods.
 
+### Testing
+
+2. Headless Neovim
+Neovim has a headless mode that can be useful for automated testing. You can send commands and inspect the state using Neovim's API. This is often done in combination with a testing framework in Python, Node.js, or other languages that have Neovim client libraries.
+
+For example, using Python:
+
+python
+Copy code
+import neovim
+
+nvim = neovim.attach('socket', path='/tmp/nvim')
+nvim.command('vsp')
+nvim.command('echo "Hello, world!"')

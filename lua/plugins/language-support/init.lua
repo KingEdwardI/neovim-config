@@ -26,5 +26,18 @@ return function(use)
   --]]
   use({ 'neovim/nvim-lspconfig' })
 
+  --[[
+  -- efmls-configs-nvim - some default configs for efmls
+  -- https://github.com/creativenull/efmls-configs-nvim
+  --]]
+  use({ 'creativenull/efmls-configs-nvim' })
+
+  require('plugins.language-support.efm-langserver')
   require('plugins.language-support.lua')
+  require('plugins.language-support.typescript')
+  --[[
+  -- twoslash-queries.nvim - use a comment to show a typedef with your cursor free
+  -- https://github.com/marilari88/twoslash-queries.nvim
+  --]]
+  use({ 'marilari88/twoslash-queries.nvim' })
 end

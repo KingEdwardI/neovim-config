@@ -1,5 +1,16 @@
 return function(use)
   --[[
+-- nvim-notify - fancy & configurable notifications
+-- https://github.com/rcarriga/nvim-notify
+  --]]
+  use({
+    'rcarriga/nvim-notify',
+    config = function()
+      require('plugins.ui.nvim-notify')
+    end,
+    requires = 'nvim-telescope/telescope.nvim',
+  })
+  --[[
   -- jellybeans-nvim - my favorite colorscheme ported to lua <3
   -- https://github.com/metalelf0/jellybeans-nvim
   -- https://github.com/rktjmp/lush.nvim - built with lush
@@ -120,18 +131,6 @@ return function(use)
     config = function()
       require('plugins.ui.barbar')
     end,
-  })
-
-  --[[
--- nvim-notify - fancy & configurable notifications
--- https://github.com/rcarriga/nvim-notify
-  --]]
-  use({
-    'rcarriga/nvim-notify',
-    config = function()
-      require('plugins.ui.nvim-notify')
-    end,
-    requires = 'nvim-telescope/telescope.nvim',
   })
 
   --[[
