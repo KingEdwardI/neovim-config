@@ -7,6 +7,9 @@ local lspconfig = invariant_require('lspconfig')
 
 if lspconfig then
   lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
+    root_dir = function(fname)
+      return lspconfig.util.root_pattern('init.lua', 'rockspec', '.git', '.luarc.json')(fname)
+    end,
     on_attach = config.on_attach,
     settings = {
       Lua = {
@@ -14,18 +17,19 @@ if lspconfig then
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = 'LuaJIT',
         },
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = { 'vim' },
-        },
+        -- diagnostics = {
+        --   -- Get the language server to recognize the `vim` global
+        --   globals = { 'vim' },
+        -- },
         workspace = {
           -- Make the server aware of Neovim runtime files
           library = vim.api.nvim_get_runtime_file('', true),
+          checkThirdParty = false,
         },
         telemetry = {
           enable = false,
         },
       },
-    }
+    },
   }))
 end

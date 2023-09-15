@@ -232,7 +232,7 @@ local buttons = {
   val = {
     dashboard.button('f', '  Find File', '<Cmd>Telescope find_files<CR>'),
     dashboard.button('g', '  Live Grep', '<Cmd>Telescope live_grep<CR>'),
-    dashboard.button('t', '¤  Tree', '<Cmd>CHADopen<CR>'),
+    dashboard.button('t', '¤  Tree', '<Cmd>NvimTreeOpen<CR>'),
     dashboard.button(
       'u',
       '  Update plugins',

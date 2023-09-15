@@ -1,7 +1,5 @@
 local utils = require('utils')
 local config = require('plugins.language-support.common')
-local eslint_d_config =
-    require('plugins.language-support.efm-langserver.eslint_d')
 local invariant_require = utils.invariant_require
 
 local lspconfig = invariant_require('lspconfig')
@@ -13,12 +11,15 @@ local markdownlint_linter =
     invariant_require('efmls-configs.linters.markdownlint')
 local shellcheck_linter = invariant_require('efmls-configs.linters.shellcheck')
 
+local luacheck_linter = invariant_require('efmls-configs.linters.luacheck')
+local eslint_d_linter = invariant_require('efmls-configs.linters.eslint_d')
+local eslint_d_formatter =
+    invariant_require('efmls-configs.formatters.eslint_d')
+
 local rootMarkers = { '.git/', 'package.json' }
 
 if lspconfig then
-  local cwd = debug.getinfo(1).source:match("@?(.*/)")
-  print(cwd)
-  os.execute("export PATH=$PATH:/usr/local/bin/efm-langserver")
+  os.execute('export PATH=$PATH:/usr/local/bin/efm-langserver')
 
   lspconfig.efm.setup({
     cmd = { 'efm-langserver' },
@@ -29,24 +30,38 @@ if lspconfig then
       completion = true,
     },
     root_dir = function(fname)
-      print('rootdir')
-      print(lspconfig.util.root_pattern(unpack(rootMarkers))(fname))
-      print(lspconfig.util.path.dirname(fname))
       return lspconfig.util.root_pattern(unpack(rootMarkers))(fname)
           or lspconfig.util.path.dirname(fname)
     end,
+    init_options = { documentFormatting = true },
+
     settings = {
+      lintDebounce = 500,
       rootMarkers = rootMarkers,
       languages = {
-        lua = { stylua_formatter },
+        lua = { stylua_formatter, luacheck_linter },
         prettier = { prettier_formatter },
         yaml = { yamllint_linter },
         markdown = { markdownlint_linter },
         bash = { shellcheck_linter },
-        eslint_d = eslint_d_config,
+        typescript = { eslint_d_linter, eslint_d_formatter },
+        javascript = { eslint_d_linter, eslint_d_formatter },
+        typescriptreact = { eslint_d_linter, eslint_d_formatter },
+        ['typescript.tsx'] = { eslint_d_linter, eslint_d_formatter },
+        javascriptreact = { eslint_d_linter, eslint_d_formatter },
+        ['javascript.jsx'] = { eslint_d_linter, eslint_d_formatter },
+        -- Todo: Rust, Python, ...Others?
       },
     },
-    filetypes = { 'lua', 'python', 'javascript', 'typescript', 'rust' },
+    filetypes = {
+      'lua',
+      'python',
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+      'rust',
+    },
     on_attach = function(client, bufnr)
       vim.lsp.handlers['textDocument/publishDiagnostics'] =
           vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {

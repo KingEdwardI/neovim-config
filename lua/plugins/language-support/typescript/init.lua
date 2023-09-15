@@ -8,6 +8,7 @@ local invariant_require = utils.invariant_require
 
 local coq = require('plugins.core.coq-nvim')
 local lspconfig = invariant_require('lspconfig')
+
 local twoslash = invariant_require('twoslash-queries')
 
 if lspconfig then
@@ -15,9 +16,6 @@ if lspconfig then
 
   lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
     on_attach = function(client, bufnr)
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-
       if twoslash then
         twoslash.attach(client, bufnr)
       else
@@ -29,19 +27,31 @@ if lspconfig then
 
       config.on_attach(client, bufnr)
     end,
-    root_dir = require('lspconfig/util').root_pattern(
-      'package.json',
-      'tsconfig.json',
-      'jsconfig.json',
-      '.git'
-    ),
+    root_dir = function(fname)
+      local cwd = lspconfig.util.root_pattern('tsconfig.json')(fname)
+        or lspconfig.util.root_pattern('.eslintrc.json', '.git')(fname)
+        or lspconfig.util.root_pattern('package.json', '.git/', '.zshrc')(fname)
+      return cwd
+    end,
     capabilities = vim.lsp.protocol.make_client_capabilities(),
-    hostInfo = 'neovim',
     -- Todo: go through tsserver options and nail this down
     preferences = {
       quotePreference = 'single',
       includeCompletionsForImportStatements = true,
-      importModuleSpecifierPreference = 'project-relative',
+      importModuleSpecifierPreference = 'relative',
+      disableSuggestions = false,
+      includeCompletionsForModuleExports = true,
+      -- Todo: Not sure if this goes in this object, or the next level up
+      -- codeActionOnSave = {
+      --   source = {
+      --     fixAll = true,
+      --     removeUnused = true,
+      --     addMissingImports = true,
+      --     removeUnusedImports = true,
+      --     sortImports = true,
+      --     organizeImports = true
+      --   }
+      -- }
     },
   }))
 end

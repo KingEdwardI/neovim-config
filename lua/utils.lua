@@ -55,23 +55,23 @@ utils.invariant_require = function(pluginName)
   local prompt_text = [[
 Error occurred when loading a plugin: Unable to load "]] .. pluginName .. [[" 
 in file "]] .. debug.getinfo(2, 'S').source
-          --           .. [["
-          -- Would you like to run PackerInstall Y/n?
-          -- ]],
+  --           .. [["
+  -- Would you like to run PackerInstall Y/n?
+  -- ]],
 
   if not present then
     if pluginName ~= 'packer' then
-            vim.notify(prompt_text, vim.log.levels.ERROR)
+      vim.notify(prompt_text, vim.log.levels.ERROR)
 
       -- vim.ui.input(
       --   {
       --     prompt = prompt_text,
       --   }
-        --   function(input)
-        --   if utils.isnil(input) or string.lower(input) == 'y' then
-        --     vim.cmd(':PackerInstall<CR>')
-        --   end
-        -- end
+      --   function(input)
+      --   if utils.isnil(input) or string.lower(input) == 'y' then
+      --     vim.cmd(':PackerInstall<CR>')
+      --   end
+      -- end
       -- )
     end
     return false

@@ -1,4 +1,5 @@
-return function(wk)
+local wk = require('which-key')
+
   -- Need to override the default mapping manually so that commenting works right and doesn't accidentally
   -- trigger `c` after commenting.
   wk.register({
@@ -15,4 +16,3 @@ return function(wk)
       n = 'Add comment below current line',
     },
   })
-end

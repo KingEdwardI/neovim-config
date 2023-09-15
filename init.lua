@@ -7,5 +7,6 @@ invariant_require('impatient')
 -- vim.api.nvim_set_var("LUA_CPATH", "/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;./?.so;/Users/edward.vetterdrake/.luarocks/lib/lua/5.4/?.so")
 
 require('plugins')
-require('keymappings')
+require('core_keymap')
+require('plugins.keymaps')
 require('core_settings')

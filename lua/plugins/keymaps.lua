@@ -1,5 +1,8 @@
-local wk = require('which-key')
-local register_comment_keys = require('plugins.ui.comment.keymap')
-require('plugins.ui.telescope.keymap')
+require('plugins.core.comment.keymap')
+require('plugins.core.choosewin.keymap')
+require('plugins.core.trouble.keymap')
 
-register_comment_keys(wk)
+require('plugins.ui.telescope.keymap')
+require('plugins.ui.barbar.keymap')
+require('plugins.ui.nvim-notify.keymap')
+
